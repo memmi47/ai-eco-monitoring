@@ -2,7 +2,7 @@ import pandas as pd
 import sqlite3
 import os
 
-# Define Base Directory
+# Define Base Directory (backend folder)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 db_url = os.environ.get("DATABASE_URL", os.path.join(BASE_DIR, "database", "ai_eco_monitor.db"))
 

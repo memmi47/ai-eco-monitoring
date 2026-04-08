@@ -16,8 +16,8 @@ except ImportError:
 
 load_dotenv()
 
-# Define Base Directory for absolute pathing
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Base directory is now the backend folder itself
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = FastAPI(title="AI Eco Monitor API")
 
@@ -30,42 +30,43 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Use absolute path for SQLite db file
+# SQLite DB is now in backend/database/
 DEFAULT_DB_PATH = os.path.join(BASE_DIR, "database", "ai_eco_monitor.db")
 db_url = os.environ.get("DATABASE_URL", DEFAULT_DB_PATH)
 
-# Add database directory to path to import seed_db
+# Import seed_db from the local database folder
+import sys
 sys.path.append(os.path.join(BASE_DIR, 'database'))
 try:
     import seed_db
 except ImportError:
     seed_db = None
 
-# Simple check/seed on startup
+# Startup check
 @app.on_event("startup")
 def startup_event():
-    # Ensure folder exists
     db_dir = os.path.dirname(db_url)
     if db_dir and not os.path.exists(db_dir):
         os.makedirs(db_dir, exist_ok=True)
     
     conn = sqlite3.connect(db_url)
     cursor = conn.cursor()
-    # Check if DB is initialized
+    # If the provided DATABASE_URL is postgres, we skip the sqlite check/seed
+    if db_url.startswith("postgresql"):
+        print(f"Connecting to external PostgreSQL: {db_url}")
+        conn.close()
+        return
+
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
     table_exists = cursor.fetchone()
     
     if not table_exists:
-        print(f"Database tables not found. Initializing at {db_url}...")
+        print(f"Initializing SQLite database at {db_url}...")
         if seed_db:
             seed_db.main()
-        else:
-            print("Warning: seed_db.py not found.")
     else:
         cursor.execute("SELECT COUNT(*) FROM companies")
-        count = cursor.fetchone()[0]
-        if count == 0:
-            print("Database is empty. Seeding...")
+        if cursor.fetchone()[0] == 0:
             if seed_db:
                 seed_db.main()
     conn.close()
