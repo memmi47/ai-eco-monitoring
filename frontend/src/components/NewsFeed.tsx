@@ -17,10 +17,15 @@ export default function NewsFeed() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch(`${API_URL}/api/companies?tier=T1`) // Fetch Tier 1 companies as "Important Updates"
-      .then(res => res.json())
+    fetch(`${API_URL}/api/companies?tier=T1`)
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
       .then(data => {
-        setCompanies(data.slice(0, 10)); // Show top 10 for feed
+        if (Array.isArray(data)) {
+          setCompanies(data.slice(0, 10));
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -29,7 +34,8 @@ export default function NewsFeed() {
       });
   }, []);
 
-  if (loading) return <div className="text-gray-400">Syncing with ecosystem data...</div>;
+  if (loading) return <div className="text-gray-400 animate-pulse text-sm">Syncing with ecosystem data...</div>;
+
 
   return (
     <div>

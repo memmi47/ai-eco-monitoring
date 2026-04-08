@@ -9,9 +9,16 @@ export default function TaxonomyPanel() {
 
   useEffect(() => {
     fetch(`${API_URL}/api/taxonomy`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
       .then(data => {
-        setTaxonomy(data);
+        if (data && Array.isArray(data.layers) && Array.isArray(data.categories)) {
+          setTaxonomy(data);
+        } else {
+          console.error("Invalid taxonomy data format:", data);
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -20,31 +27,33 @@ export default function TaxonomyPanel() {
       });
   }, []);
 
-  if (loading) return <div className="text-gray-400">Loading taxonomy...</div>;
+  if (loading) return <div className="text-gray-400 animate-pulse text-sm">Syncing taxonomy...</div>;
+
+  const { layers = [], categories = [] } = taxonomy || {};
 
   return (
     <div>
       <h2 className="text-xl font-bold mb-4">Taxonomy</h2>
       <div className="space-y-6">
         <div>
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Layers</h3>
+          <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-tighter mb-3">Layers</h3>
           <ul className="space-y-1">
-            {taxonomy.layers.map(layer => (
-              <li key={layer} className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1 rounded hover:bg-blue-50">
+            {layers.length > 0 ? layers.map(layer => (
+              <li key={layer} className="text-xs font-medium text-gray-600 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
                 {layer}
               </li>
-            ))}
+            )) : <li className="text-xs text-gray-400 italic font-light px-2">No layers mapped</li>}
           </ul>
         </div>
         <div>
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">Key Categories</h3>
+          <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-tighter mb-3">Core Categories</h3>
           <ul className="space-y-1">
-            {taxonomy.categories.slice(0, 15).map(cat => (
-              <li key={cat} className="text-sm text-gray-700 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1 rounded hover:bg-blue-50">
+            {categories.length > 0 ? categories.slice(0, 15).map(cat => (
+              <li key={cat} className="text-xs font-medium text-gray-600 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
                 {cat}
               </li>
-            ))}
-            {taxonomy.categories.length > 15 && <li className="text-xs text-gray-400 pl-2">...and more</li>}
+            )) : <li className="text-xs text-gray-400 italic font-light px-2">Loading categories...</li>}
+            {categories.length > 15 && <li className="text-[10px] text-gray-300 pl-2 pt-1">+ {categories.length - 15} more</li>}
           </ul>
         </div>
       </div>

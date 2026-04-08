@@ -9,9 +9,14 @@ export default function ActivityChart() {
 
   useEffect(() => {
     fetch(`${API_URL}/api/stats`)
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+        return res.json();
+      })
       .then(data => {
-        setStats(data);
+        if (data && typeof data.total_companies === 'number') {
+          setStats(data);
+        }
         setLoading(false);
       })
       .catch(err => {
@@ -20,17 +25,24 @@ export default function ActivityChart() {
       });
   }, []);
 
-  if (loading) return <div className="text-gray-400">Calculating ecosystem metrics...</div>;
+  if (loading) return <div className="text-gray-400 animate-pulse text-sm">Quantifying ecosystem impact...</div>;
+
+  const displayStats = {
+    total_companies: stats.total_companies || 0,
+    tier1: stats.tier1 || 0,
+    tier2: stats.tier2 || 0,
+    tier3: stats.tier3 || 0
+  };
 
   return (
     <div>
       <h2 className="text-xl font-bold mb-6">Ecosystem Summary</h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { label: 'Total Players', val: stats.total_companies, color: 'text-gray-900' },
-          { label: 'Tier 1 (High)', val: stats.tier1, color: 'text-red-600' },
-          { label: 'Tier 2 (Med)', val: stats.tier2, color: 'text-orange-600' },
-          { label: 'Tier 3 (Low)', val: stats.tier3, color: 'text-yellow-600' }
+          { label: 'Total Players', val: displayStats.total_companies, color: 'text-gray-900' },
+          { label: 'Tier 1 (High)', val: displayStats.tier1, color: 'text-red-600' },
+          { label: 'Tier 2 (Med)', val: displayStats.tier2, color: 'text-orange-600' },
+          { label: 'Tier 3 (Low)', val: displayStats.tier3, color: 'text-yellow-600' }
         ].map((item, idx) => (
           <div key={idx} className="bg-gray-50 p-4 rounded-lg text-center border border-gray-100 shadow-sm">
             <div className={`text-2xl font-black ${item.color}`}>{item.val}</div>
