@@ -1,0 +1,592 @@
+﻿No.,Layer (대분류),Category (중분류),Sub-category (소분류),회사명,구분,상장여부,HQ지역,Company Mission,한줄 설명 (비고),중요도
+1,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,Oklo,Nuclear/SMR,상장,미국,Powering the future with advanced fission,"Sam Altman 의장, 소형 원자로(SMR) 기반 AI DC 전력 공급",High
+2,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,TerraPower,Nuclear/SMR,비상장,미국,Raising living standards globally through nuclear energy innovation,"Bill Gates 설립, 차세대 원자로 Natrium 기술 및 전력망 연계",High
+3,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,NuScale Power,Nuclear/SMR,상장,미국,Providing scalable advanced nuclear technology,"VOYGR SMR 기술, 무탄소 DC 전력 인프라 주도",High
+4,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,X-energy,Nuclear/SMR,상장,미국,Delivering the benefits of advanced nuclear energy,Xe-100 고온 가스 원자로 기반 DC 전력 공급,High
+5,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,Kairos Power,Nuclear/SMR,비상장,미국,Enabling the world's transition to clean energy,"용융염 원자로 기술, Google DC 전력 공급 협력",High
+6,A. Physical Infrastructure,A1. Energy & Power,Nuclear/SMR,Rolls-Royce SMR,Nuclear/SMR,상장,영국,Delivering low-cost clean power,유럽 기반 소형 원자로 및 DC 비상 발전 솔루션,Medium
+7,A. Physical Infrastructure,A1. Energy & Power,Nuclear/Utility,Constellation Energy,Nuclear/Utility,상장,미국,Generating clean energy to power everyday life,"미국 최대 원전 운영사, MS DC 전력 공급 계약 리더",High
+8,A. Physical Infrastructure,A1. Energy & Power,Nuclear/Utility,Talen Energy,Nuclear/Utility,상장,미국,Powering a brighter future,Susquehanna 원전 기반 AWS DC 전력 공급 계약,High
+9,A. Physical Infrastructure,A1. Energy & Power,Fusion Energy,Helion Energy,Fusion Energy,비상장,미국,"Creating a new era of plentiful, zero-carbon electricity","핵융합 발전 선두, Microsoft 전력 공급 계약 체결",High
+10,A. Physical Infrastructure,A1. Energy & Power,Fusion Energy,Commonwealth Fusion,Fusion Energy,비상장,미국,Commercializing fusion energy,"MIT 스핀오프, 고온초전도 토카막 핵융합 기술 선두",High
+11,A. Physical Infrastructure,A1. Energy & Power,Fusion Energy,TAE Technologies,Fusion Energy,비상장,미국,Developing commercially viable fusion power,"Google 투자 핵융합 에너지, 빔 기반 FRC 방식",Medium
+12,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Schneider Electric,Power/Grid,상장,프랑스,Bridging progress and sustainability for all,"글로벌 DC 전력 관리 1위, 유럽 에너지 인프라 지배",High
+13,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Eaton,Power/Grid,상장,미국,Making what matters work,지능형 배전 솔루션 및 전원 보호 시스템 리더,High
+14,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,ABB,Power/Grid,상장,스위스,Technology leader in electrification and automation,DC 전력 자동화 및 스마트 그리드 기술 선두,High
+15,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Siemens,Power/Grid,상장,독일,Technology for a sustainable future,유럽 산업용 전력망 및 DC 에너지 효율화 전문,High
+16,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,GE Vernova,Power/Grid,상장,미국,Electrifying and decarbonizing the world,천연가스 및 재생 에너지 DC 전력 솔루션,High
+17,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Forgent (FPS),Power/Grid,상장,미국,Custom power infrastructure for AI data centers,AI DC 전용 전기 배전 장비 및 맞춤형 파워트레인 전문,Medium
+18,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Legrand,Power/Rack,상장,프랑스,Improving lives with electrical and digital infrastructure,DC용 PDU 및 에너지 관리 솔루션 유럽 강자,Medium
+19,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Vertiv (Power),Power/UPS,상장,미국,Keeping critical infrastructure running,UPS/배전 포함 통합 전력 인프라 공급,High
+20,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Socomec,Power/UPS,비상장,프랑스,Mastering the critical power chain,전력 가용성 제어 시스템 전문,Low
+21,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Riello Elettronica,Power/UPS,비상장,이탈리아,Protecting critical infrastructure,고효율 UPS 및 에너지 저장 솔루션 공급,Low
+22,A. Physical Infrastructure,A1. Energy & Power,Power/Grid & UPS,Piller Power,Power/UPS,비상장,독일,Protecting critical power supplies,대규모 DC용 무정전 전원 공급 장치 전문,Low
+23,A. Physical Infrastructure,A1. Energy & Power,Power Generation,Cummins,Power/Gen,상장,미국,Powering a more prosperous world,DC 비상용 발전기 및 수소 전지 기술 리더,High
+24,A. Physical Infrastructure,A1. Energy & Power,Power Generation,Caterpillar,Power/Gen,상장,미국,Building the world's infrastructure,대형 DC 비상 발전기 및 가스 터빈 공급,High
+25,A. Physical Infrastructure,A1. Energy & Power,Power Generation,MTU Onsite Energy,Power/Gen,비상장,독일,Reliable power generation solutions,Rolls-Royce 계열 DC 전용 발전기 시스템,Low
+26,A. Physical Infrastructure,A1. Energy & Power,Fuel Cell,Bloom Energy,Fuel Cell,상장,미국,"Making clean, reliable energy affordable","고효율 고체산화물 연료전지, DC 현장 발전 선두",High
+27,A. Physical Infrastructure,A1. Energy & Power,Fuel Cell,Plug Power,Fuel Cell,상장,미국,Building the hydrogen economy,그린수소 연료전지 기반 DC 백업 전원 솔루션,Medium
+28,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,Tesla Energy,ESS/Power,상장,미국,Accelerating the world's transition to sustainable energy,Megapack 기반 DC 전력 저장 및 최적화,High
+29,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,Fluence Energy,ESS/Battery,상장,미국,Transforming the way we power our world,"Siemens-AES 합작, 유틸리티급 ESS 솔루션",Medium
+30,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,Form Energy,ESS/Battery,비상장,미국,Delivering multi-day energy storage,철-공기 배터리 기반 초장시간 에너지 저장,Medium
+31,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,EOS Energy,ESS/Battery,상장,미국,"Safe, scalable, sustainable energy storage",아연-브로마이드 배터리 기반 DC 에너지 저장,Low
+32,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,Nyobolt,ESS/Battery,비상장,영국,Ultra-fast charging battery technology,초고속 충전 배터리 기술 기반 DC 에너지 저장,Low
+33,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,NextEra Energy,Renewable,상장,미국,Building a sustainable energy future,"미국 최대 재생에너지 발전사, DC PPA 확대",High
+34,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,AES Corporation,Renewable,상장,미국,Accelerating the future of energy,재생에너지 및 ESS 기반 DC 전력 솔루션,Medium
+35,A. Physical Infrastructure,A1. Energy & Power,ESS & Renewable,Vistra Energy,Power/Gen,상장,미국,Powering a brighter future for all,"미국 최대 독립 발전사, AI DC 전력 공급 계약 확대",High
+36,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Flower,Energy Tech,비상장,스웨덴,Optimizing energy infrastructure,유럽 그리드 최적화 및 유연한 에너지 인프라,Low
+37,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Fuse Energy,Energy Tech,비상장,영국,Distributed energy innovation,소비자 및 기업용 분산 에너지 공급 혁신,Low
+38,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Reonic,Energy Tech,비상장,독일,Commercial energy system design,상업용 에너지 시스템 설계 및 관리 SW,Low
+39,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Vastra,Energy Tech,비상장,영국,Intelligent grid services,에너지 분산 관리 및 지능형 그리드 서비스,Low
+40,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Enrogen,Energy Tech,비상장,영국,Hybrid power for data centers,DC 전용 하이브리드 발전 시스템 공급,Low
+41,A. Physical Infrastructure,A1. Energy & Power,Energy Tech,Enchant Energy,CCS/Power,비상장,미국,Carbon capture for clean power,탄소 포집 기반 청정 전력 공급,Low
+42,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Vertiv (Thermal),Liquid Cool,상장,미국,Keeping critical infrastructure running,"NVIDIA 파트너, 공랭/액침 통합 냉각 솔루션",High
+43,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Submer,Liquid Cool,비상장,스페인,Sustainable liquid immersion cooling,유럽 기반 단상 액침 냉각 기술 혁신 리더,High
+44,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Asetek,Liquid Cool,상장,덴마크,Liquid cooling for data centers,Direct-to-Chip 액체 냉각 분야 글로벌 선두,High
+45,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,CoolIT Systems,Liquid Cool,비상장,캐나다,Direct liquid cooling at rack scale,Direct Liquid Cooling 랙 레벨 솔루션 리더,High
+46,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Iceotope,Liquid Cool,비상장,영국,Precision immersion cooling,정밀 액침 냉각(Precision Immersion) 기술 보유,Medium
+47,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,GRC,Liquid Cool,비상장,미국,Single-phase immersion cooling,NVIDIA와 협력하는 단상 액침 냉각 표준화 기업,Medium
+48,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Accelsius,Liquid Cool,비상장,미국,Two-phase direct-to-chip cooling,2단계 다이렉트 투 칩 냉각 상용화 선두,Medium
+49,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Asperitas,Liquid Cool,비상장,네덜란드,Natural immersion cooling,에너지 효율 중심의 액침 냉각 모듈 전문,Low
+50,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,DCX,Liquid Cool,비상장,폴란드,Hot water cooling distribution,8MW급 온수 냉각 배분 장치(FDU) 개발 혁신,Low
+51,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,Motivair,Liquid Cool,비상장,미국,High-density cooling solutions,고밀도 AI 워크로드용 ChilledDoor 냉각 솔루션,Medium
+52,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,JetCool Technologies,Liquid Cool,비상장,미국,Microjet-based chip cooling,마이크로제트 기반 초고밀도 칩 냉각 기술,Medium
+53,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,ZutaCore,Liquid Cool,비상장,이스라엘,Direct-on-chip two-phase cooling,다이렉트-온-칩 2상 액체 냉각 기술 보유,Medium
+54,A. Physical Infrastructure,A2. Thermal Management,Liquid Cool,LiquidCool Solutions,Liquid Cool,비상장,미국,Full server immersion cooling,서버 내부 완전 액침 냉각 기술 특화,Low
+55,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,Modine (Airedale),Thermal/Cool,상장,미국/영국,Engineering a cleaner world,AI 전용 고효율 칠러 및 수냉 솔루션,Medium
+56,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,Daikin Applied,Thermal/Cool,상장,일본/미국,Perfecting the air,Chilldyne 인수로 수냉식 냉각 포트폴리오 강화,Medium
+57,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,Trane Technologies,Thermal/Cool,상장,미국,Challenging what's possible for a sustainable world,대형 DC 칠러 및 HVAC 시스템 글로벌 리더,High
+58,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,Carrier Global,Thermal/Cool,상장,미국,Creating solutions for the built environment,상업/산업용 냉각 시스템 및 DC 공조 솔루션,Medium
+59,A. Physical Infrastructure,A2. Thermal Management,Thermal/HVAC,Stulz,Thermal/HVAC,비상장,독일,Precision air conditioning,정밀 냉각 시스템 및 특수 공조 솔루션 강자,Medium
+60,A. Physical Infrastructure,A2. Thermal Management,Thermal/HVAC,Munters,Thermal/HVAC,상장,스웨덴,Making air work for our customers,고효율 냉각 및 증발식 가습 제어 솔루션,Medium
+61,A. Physical Infrastructure,A2. Thermal Management,Thermal/HVAC,Nortek Air,Thermal/HVAC,비상장,미국,Custom HVAC for data centers,대형 DC용 맞춤형 공조 솔루션(StatePoint) 제공,Medium
+62,A. Physical Infrastructure,A2. Thermal Management,Thermal/Rack,Rittal,Thermal/Rack,비상장,독일,The system for faster solutions,DC 랙 및 통합 인프라 냉각 유럽 1위,Medium
+63,A. Physical Infrastructure,A2. Thermal Management,Thermal/Rack,Nvent Electric,Thermal/Rack,상장,미국,Connecting and protecting power,랙 레벨 냉각 및 전력 관리 인프라 전문,Medium
+64,A. Physical Infrastructure,A2. Thermal Management,Thermal/Exch,Alfa Laval,Thermal/Exch,상장,스웨덴,Advancing better conditions for people and planet,DC 열교환기 및 에너지 효율화 부품 글로벌 리더,Medium
+65,A. Physical Infrastructure,A2. Thermal Management,Thermal/Exch,Kelvion,Thermal/Exch,비상장,독일,Heat exchange solutions,고성능 열교환 시스템 및 냉각 타워 전문,Low
+66,A. Physical Infrastructure,A2. Thermal Management,Thermal/Exch,Guntner,Thermal/Exch,비상장,독일,Heat exchange technology for cooling,세계 최대 규모의 증발식 냉각기 및 교환기 공급,Low
+67,A. Physical Infrastructure,A2. Thermal Management,Thermal/Comp,Danfoss,Thermal/Comp,비상장,덴마크,Engineering tomorrow's energy solutions,냉각 장치 핵심 부품 및 에너지 관리 밸브 주도,Medium
+68,A. Physical Infrastructure,A2. Thermal Management,Thermal/Opt,Inviscid AI,Thermal/Opt,비상장,미국,Physics-based AI for DC cooling optimization,물리학 기반 AI를 활용한 DC 기류/냉각 최적화,Low
+69,A. Physical Infrastructure,A2. Thermal Management,Thermal/Mgmt,Boyd Corporation,Thermal/Mgmt,비상장,미국,Thermal management materials and systems,열 관리 소재 및 액체 냉각 시스템 통합 공급,Medium
+70,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,Panasonic HVAC,Thermal/Cool,상장,일본,"A better life, a better world",유럽향 AI DC 전용 CDU 및 냉각 시스템 출시,Medium
+71,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,AERMEC,Thermal/Cool,비상장,이탈리아,Climate control solutions,유럽 시장향 고성능 칠러 및 정밀 냉각기 제조,Low
+72,A. Physical Infrastructure,A2. Thermal Management,Thermal/Cool,HiRef,Thermal/Cool,비상장,이탈리아,IT cooling solutions,고효율 DC 공조 및 IT 냉각 시스템 특화,Low
+73,A. Physical Infrastructure,A2. Thermal Management,Thermal/HVAC,FlaktGroup,Thermal/HVAC,비상장,독일,Indoor air quality solutions,DC용 환기 및 공기 정화 솔루션 전문,Low
+74,A. Physical Infrastructure,A2. Thermal Management,Thermal/EPC,Mace,Thermal/EPC,상장,영국,Shaping connected cities,유럽 대형 DC 냉각 인프라 통합 구축 전문,Low
+75,A. Physical Infrastructure,A2. Thermal Management,Thermal/EPC,Starching,Thermal/EPC,비상장,이탈리아,DC precision cooling engineering,DC 정밀 냉각 설계 및 시공 엔지니어링,Low
+76,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Equans,EPC/Construction,상장,프랑스,Connecting performance and responsibility,유럽 전역 DC 설계/시공 및 에너지 관리 리더,High
+77,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,AECOM,EPC/Design,상장,미국,Delivering a better world,"글로벌 11GW 이상 수행, 대규모 DC 구축",High
+78,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Jacobs,EPC/Design,상장,미국,Challenging today. Reinventing tomorrow,AI 팩토리 디지털 트윈 설계 및 엔지니어링 1위,High
+79,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Fluor,EPC/Construction,상장,미국,Building a better world,모듈러 DC 구축 및 초대형 프로젝트 글로벌 표준,High
+80,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,DPR Construction,EPC/Construction,비상장,미국,We exist to build great things,기술 중심 시공으로 빅테크 DC 선호도 높음,High
+81,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Turner Construction,EPC/Construction,상장,미국,Building the future,하이퍼스케일 DC 구축 리더 (Vantage 등 협력),High
+82,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Hensel Phelps,EPC/Construction,비상장,미국,Building what matters,빅테크 DC 구축 경험 풍부한 종합 건설사,Medium
+83,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Holder Construction,EPC/Construction,비상장,미국,Building with purpose,미국 내 대형 DC 시공 프로젝트 다수 수행,Medium
+84,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Exyte,EPC/Design,비상장,독일,Engineering your future,반도체 팹 및 클린룸 기술 기반 정밀 DC 구축,Medium
+85,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Mercury Engineering,EPC/Construction,비상장,아일랜드,Excellence in engineering,유럽 최대 DC 특화 시공 및 전기 설비 전문,Medium
+86,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Skanska,EPC/Construction,상장,스웨덴,Building what matters,지속가능한 DC 구축 및 저탄소 시공 선두,Medium
+87,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Bouygues Construction,EPC/Construction,상장,프랑스,Building the future,유럽 내 고성능 DC 물리 인프라 구축 핵심,Medium
+88,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Sweco,EPC/Design,상장,스웨덴,Transforming society together,유럽 시장 규제 및 에너지 최적화 설계 전문,Medium
+89,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Arup,EPC/Design,비상장,영국,Shaping a better world,데이터센터 구조 설계 및 지속가능성 컨설팅,Medium
+90,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Gensler,EPC/Design,비상장,미국,Design for the human experience,DC 건축 디자인 및 공간 데이터 최적화,Medium
+91,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Corgan,EPC/Design,비상장,미국,Architecture that makes a difference,DC 전문 건축 설계 및 마스터플래닝,Medium
+92,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,HDR,EPC/Design,비상장,미국,We believe great things are possible,DC 및 미션크리티컬 시설 MEP 설계 전문,Medium
+93,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,HITT Contracting,EPC/Construction,비상장,미국,Building with integrity,모듈형 DC 및 신속 구축 솔루션 강점,Low
+94,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Electric,Kirby Group,EPC/Electric,비상장,아일랜드,Engineering excellence,유럽 DC 전력 설비 및 기계 시공 전문,Low
+95,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,PM Group,EPC/Design,비상장,아일랜드,Engineering a better future,DC 및 첨단 제조 시설 프로젝트 관리 선두,Low
+96,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Artelia,EPC/Design,비상장,프랑스,Architecture and engineering services,대규모 DC 자산 관리 및 구축 지원 전문,Low
+97,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Build,EPC/Design,비상장,미국,AI-native data center design,AI 네이티브 DC 전문 설계 및 컨설팅,Low
+98,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Cost,Linesight,EPC/Cost,비상장,아일랜드,DC cost management consulting,DC 구축 비용 관리 및 글로벌 공급망 컨설팅,Low
+99,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Designer Group,EPC/Construction,비상장,아일랜드,Engineering services,대형 DC 전기 및 기계 엔지니어링 서비스,Low
+100,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,CapIngelec,EPC/Design,비상장,프랑스,Turnkey DC solutions,DC 턴키 구축 및 인프라 현대화 솔루션,Low
+101,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Design,Future-tech,EPC/Design,비상장,영국,DC feasibility and design,DC 타당성 조사 및 특수 설계 전문,Low
+102,A. Physical Infrastructure,A3. DC Design & EPC,EPC/Construction,Sto Building Group,EPC/Construction,비상장,미국,High-performance construction,고성능 DC 인프라 시공 및 관리,Low
+103,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Litho Equipment,ASML,Litho Equipment,상장,네덜란드,Unlocking the potential of people and society,"EUV 노광 장비 독점, AI 칩 미세공정 핵심 인프라",High
+104,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Depo/Etch,Applied Materials,Depo/Etch,상장,미국,Make possible the technology shaping the future,"반도체 증착/식각 장비 세계 1위, HBM/GAA 수혜",High
+105,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Etch/Depo,Lam Research,Etch/Depo,상장,미국,Enabling chipmakers to shape the future,"식각 장비 글로벌 1위, 3D NAND/HBM TSV 핵심",High
+106,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Coater/Etch,Tokyo Electron,Coater/Etch,상장,일본,Contribute to technological innovation,코터/현상기 및 식각 장비 일본 1위,High
+107,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Inspection,KLA Corporation,Inspection,상장,미국,Advancing humanity through semiconductor technology,반도체 결함 검사/계측 장비 독보적 1위,High
+108,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,EDA/IP,Synopsys,EDA/IP,상장,미국,Advancing the world of chip design,"칩 설계 자동화(EDA) 글로벌 1위, AI 칩 설계 필수",High
+109,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,EDA/IP,Cadence Design,EDA/IP,상장,미국,Enabling electronic system innovation,칩 설계 검증 및 시뮬레이션 EDA 2위,High
+110,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Simulation,Ansys,Simulation,상장,미국,Power the breakthroughs that drive human advancement,"Synopsys 인수, 열/전력/구조 시뮬레이션 통합",High
+111,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Bonding,BE Semiconductor,Bonding,상장,네덜란드,Connecting the world's electronics,"하이브리드 본딩 장비 선두, HBM/칩렛 핵심",High
+112,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Test,Advantest,Test,상장,일본,Enabling leading-edge technologies,"반도체 테스트 장비 글로벌 1위, HBM 테스트 수요 급증",High
+113,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Test,Teradyne,Test,상장,미국,Accelerating innovation,반도체 자동 테스트 장비(ATE) 2위,High
+114,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Dicing,Disco Corporation,Dicing,상장,일본,The cutting and grinding company,웨이퍼 다이싱/그라인딩 장비 세계 1위,Medium
+115,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Cleaning,SCREEN Holdings,Cleaning,상장,일본,Pioneering precision technology,웨이퍼 세정 장비 및 직접 묘화 장비 강자,Medium
+116,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Deposition,Kokusai Electric,Deposition,상장,일본,Batch deposition solutions,배치식 CVD/ALD 장비 전문,Medium
+117,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Mask Inspect,Lasertec,Mask Inspect,상장,일본,Photomask inspection technology,EUV 마스크 결함 검사 장비 독점적 지위,Medium
+118,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Inspection,Onto Innovation,Inspection,상장,미국,Advanced packaging inspection,어드밴스드 패키징 검사/계측 장비,Medium
+119,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Materials,Entegris,Materials,상장,미국,"Purify, protect, and transport critical materials",반도체 공정용 특수 소재/필터/화학 공급 리더,High
+120,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,Test/Handler,Cohu,Test/Handler,상장,미국,Semiconductor test solutions,반도체 테스트 핸들러 및 인터페이스 전문,Low
+121,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,IP/Architecture,Arm Holdings,IP/Architecture,상장,영국,Computing for a sustainable future,AI 칩 CPU/NPU 아키텍처 IP 라이선싱 지배,High
+122,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,IP/GPU,Imagination Tech,IP/GPU,비상장,영국,GPU and AI IP solutions,모바일/엣지 GPU IP 및 AI 가속기 IP 보유,Medium
+123,B. Semiconductor & Components,B1. Semiconductor Equipment & EDA,SiC Wafer,Wolfspeed,SiC Wafer,상장,미국,Silicon carbide semiconductor leader,실리콘카바이드(SiC) 웨이퍼 및 파워 반도체 선두,Medium
+124,B. Semiconductor & Components,B2. Compute & Silicon,GPU,NVIDIA,GPU,상장,미국,Computing technology for the age of AI,"AI 가속기 시장 80%+ 점유, Blackwell/Rubin 아키텍처",High
+125,B. Semiconductor & Components,B2. Compute & Silicon,GPU/CPU,AMD,GPU/CPU,상장,미국,High-performance and adaptive computing,"MI300X/MI400 통해 NVIDIA 대항마, ZT Systems 인수",High
+126,B. Semiconductor & Components,B2. Compute & Silicon,CPU/ASIC,Intel,CPU/ASIC,상장,미국,Creating world-changing technology,"Gaudi 3 가속기 및 AI PC, 파운드리 분사 추진",High
+127,B. Semiconductor & Components,B2. Compute & Silicon,ASIC/Net,Broadcom,ASIC/Net,상장,미국,Connecting everything,Google TPU 공동 개발 및 AI 네트워킹 리더,High
+128,B. Semiconductor & Components,B2. Compute & Silicon,Mobile AP,Qualcomm,Mobile AP,상장,미국,Inventing breakthrough technologies,Snapdragon X Elite 기반 온디바이스 AI 리더,High
+129,B. Semiconductor & Components,B2. Compute & Silicon,Mobile AP,MediaTek,Mobile AP,상장,대만,Everyday genius,Dimensity 시리즈 AI 가속 및 엣지 AI SoC,Medium
+130,B. Semiconductor & Components,B2. Compute & Silicon,Custom SoC,Apple,Custom SoC,상장,미국,Think different,M시리즈/A시리즈 Neural Engine 기반 온디바이스 AI,High
+131,B. Semiconductor & Components,B2. Compute & Silicon,Custom ASIC,Google (TPU),Custom ASIC,상장,미국,Organize the world's information,TPU v5p/Trillium 자체 AI 학습/추론 가속기,High
+132,B. Semiconductor & Components,B2. Compute & Silicon,Custom ASIC,Amazon (Trainium),Custom ASIC,상장,미국,Earth's most customer-centric company,Trainium2/Inferentia 자체 AI 칩 개발,High
+133,B. Semiconductor & Components,B2. Compute & Silicon,Custom ASIC,Microsoft (Maia),Custom ASIC,상장,미국,Empower every person and organization,"Maia 100 자체 AI 가속기, Azure 전용",High
+134,B. Semiconductor & Components,B2. Compute & Silicon,Custom ASIC,Meta (MTIA),Custom ASIC,상장,미국,Building the future of connection,"MTIA 자체 추론 가속기, 광고/추천 최적화",High
+135,B. Semiconductor & Components,B2. Compute & Silicon,WSE,Cerebras Systems,WSE,상장예정,미국,Accelerating AI compute,"세계 최대 크기 CS-3 칩, 거대 모델 학습",High
+136,B. Semiconductor & Components,B2. Compute & Silicon,LPU,Groq,LPU,비상장,미국,Fast AI inference,"초고속 추론 엔진, 지연 시간 극단적 단축",High
+137,B. Semiconductor & Components,B2. Compute & Silicon,RISC-V AI,Tenstorrent,RISC-V AI,비상장,캐나다,Open-source AI hardware,"Jim Keller 설립, 개방형 아키텍처 및 라이선싱",High
+138,B. Semiconductor & Components,B2. Compute & Silicon,IPU,Graphcore,IPU,인수예정,영국,AI processors for the age of ML,"SoftBank 인수 추진 중, 독자적 AI 프로세서",Medium
+139,B. Semiconductor & Components,B2. Compute & Silicon,RDU,SambaNova,RDU,비상장,미국,Full-stack AI platform,"가변형 데이터플로우 시스템, 대형 모델 학습",Medium
+140,B. Semiconductor & Components,B2. Compute & Silicon,NPU,FuriosaAI,NPU,비상장,한국,Next-gen AI accelerators,추론용 RNGD 칩으로 글로벌 벤치마크 석권,High
+141,B. Semiconductor & Components,B2. Compute & Silicon,NPU,Rebellions,NPU,비상장,한국,AI chip for everyone,사피온 합병 후 REBEL 시리즈로 확장,Medium
+142,B. Semiconductor & Components,B2. Compute & Silicon,Edge AI,Axelera AI,Edge AI,비상장,네덜란드,AI everywhere with edge accelerators,"Europa 칩 629 TOPS, $370M+ 투자 유치",High
+143,B. Semiconductor & Components,B2. Compute & Silicon,Edge NPU,Hailo,Edge NPU,비상장,이스라엘,AI processing for edge devices,"엣지 AI 프로세서 리더, 26 TOPS at 2.5W, $1.2B 기업가치",High
+144,B. Semiconductor & Components,B2. Compute & Silicon,In-Memory,D-Matrix,In-Memory,비상장,미국,In-memory computing for AI inference,인메모리 컴퓨팅 기반 초고속 추론 가속기,Medium
+145,B. Semiconductor & Components,B2. Compute & Silicon,Photonic,Celestial AI,Photonic,비상장,미국,Photonic fabric for AI compute,광학 컴퓨팅 및 포토닉 패브릭 인터커넥트,Medium
+146,B. Semiconductor & Components,B2. Compute & Silicon,Photonic,Lightmatter,Photonic,비상장,미국,Interconnecting AI with photonics,광학 인터커넥트 Passage 및 AI 가속 Envise,High
+147,B. Semiconductor & Components,B2. Compute & Silicon,Optical I/O,Ayar Labs,Optical I/O,비상장,미국,Optical I/O for chip-to-chip communication,"칩-투-칩 광통신 I/O, 데이터 병목 해소",Medium
+148,B. Semiconductor & Components,B2. Compute & Silicon,NPU,HyperAccel,NPU,비상장,한국,Ultra-fast LLM inference,LPU 기반 초고속 LLM 추론 가속기 전문,Medium
+149,B. Semiconductor & Components,B2. Compute & Silicon,NPU,DEEPX,NPU,비상장,한국,AI chips for edge devices,엣지 및 온디바이스용 고효율 AI 반도체,Medium
+150,B. Semiconductor & Components,B2. Compute & Silicon,NPU,Mobilint,NPU,비상장,한국,Domain-specific AI inference,다양한 도메인 맞춤형 추론 가속 시스템,Low
+151,B. Semiconductor & Components,B2. Compute & Silicon,Edge NPU,Kneron,Edge NPU,비상장,미국/대만,Full-stack edge AI solutions,"엣지 AI NPU 및 통합 SW 플랫폼, Nasdaq 상장 추진",Medium
+152,B. Semiconductor & Components,B2. Compute & Silicon,Edge AI,Blaize,Edge AI,비상장,미국,AI at the edge,그래프 스트리밍 프로세서 기반 엣지 AI,Low
+153,B. Semiconductor & Components,B2. Compute & Silicon,Analog AI,Mythic,Analog AI,비상장,미국,Analog compute for AI inference,아날로그 컴퓨팅 기반 극저전력 추론 칩,Low
+154,B. Semiconductor & Components,B2. Compute & Silicon,Analog AI,Blumind,Analog AI,비상장,캐나다,Always-on analog AI,상시 대기형 극저전력 아날로그 AI 칩,Low
+155,B. Semiconductor & Components,B2. Compute & Silicon,Neuromorphic,Rain AI,Neuromorphic,비상장,미국,Brain-inspired AI chips,"뉴로모픽 AI 칩, 뇌 구조 모방 아키텍처",Low
+156,B. Semiconductor & Components,B2. Compute & Silicon,RISC-V AI,Esperanto Tech,RISC-V AI,비상장,미국,RISC-V for AI inference,1000+ 코어 RISC-V 기반 AI 추론 칩,Low
+157,B. Semiconductor & Components,B2. Compute & Silicon,At-Memory,Untether AI,At-Memory,비상장,캐나다,At-memory computing for AI,At-Memory 컴퓨팅 기반 고효율 AI 추론,Low
+158,B. Semiconductor & Components,B2. Compute & Silicon,NPU IP,Expedera,NPU IP,비상장,미국,Embedded NPU IP licensing,임베디드 NPU IP 라이선싱 전문,Low
+159,B. Semiconductor & Components,B2. Compute & Silicon,CapRAM,Semron,CapRAM,비상장,독일,High-density AI compute hardware,고밀도 AI 연산용 CapRAM 하드웨어 개발,Low
+160,B. Semiconductor & Components,B2. Compute & Silicon,Near-Zero,Vaire,Near-Zero,비상장,영국,Near-zero energy computing,에너지 손실 없는 니어-제로 에너지 컴퓨팅,Low
+161,B. Semiconductor & Components,B2. Compute & Silicon,Adv Materials,CuspAI,Adv Materials,비상장,영국,AI-driven materials discovery,AI 기반 신소재 발견 및 칩 효율화 솔루션,Low
+162,B. Semiconductor & Components,B2. Compute & Silicon,Industrial AI,PhysicsX,Industrial AI,비상장,영국,Simulation-based hardware optimization,시뮬레이션 기반 하드웨어 성능 최적화 AI,Low
+163,B. Semiconductor & Components,B2. Compute & Silicon,Photonic,Luminous Computing,Photonic,비상장,미국,Optical AI accelerators,광학 기반 AI 연산 가속기 개발,Low
+164,B. Semiconductor & Components,B2. Compute & Silicon,Photonic,Lightelligence,Photonic,비상장,미국,Photonic AI computing,광학 컴퓨팅 기반 AI 가속 칩셋,Low
+165,B. Semiconductor & Components,B2. Compute & Silicon,Ultra-Low,Syntiant,Ultra-Low,비상장,미국,Always-on AI at the edge,"초저전력 음성/센서 AI, 1000만대+ 디바이스 출하",Medium
+166,B. Semiconductor & Components,B3. Memory & Storage,Memory/HBM,SK Hynix,Memory/HBM,상장,한국,Creating new possibilities for memory,HBM3E 세계 최초 공급 및 차세대 CXL 주도,High
+167,B. Semiconductor & Components,B3. Memory & Storage,Memory/HBM,Samsung Electronics,Memory/HBM,상장,한국,"Inspire the world, create the future",HBM 및 CXL Memory(CMM) 시장 선두권,High
+168,B. Semiconductor & Components,B3. Memory & Storage,Memory/HBM,Micron,Memory/HBM,상장,미국,Enriching life for all through memory and storage,AI용 초고속 메모리 및 LPDDR5X 공급,High
+169,B. Semiconductor & Components,B3. Memory & Storage,NAND,Kioxia,NAND,상장,일본,Memory to uplift the world,"3D NAND 세계 2위, 엔터프라이즈 SSD 강자",High
+170,B. Semiconductor & Components,B3. Memory & Storage,Storage/HDD,Western Digital,Storage/HDD,상장,미국,Unlocking the potential of data,고용량 HDD 및 AI용 NVMe SSD 공급,Medium
+171,B. Semiconductor & Components,B3. Memory & Storage,Storage/HDD,Seagate,Storage/HDD,상장,미국,Datasphere stewards,"HAMR 기반 초대용량 HDD, AI 데이터 스토리지",Medium
+172,B. Semiconductor & Components,B3. Memory & Storage,Storage/Flash,VAST Data,Storage/Flash,비상장,미국,Simplify data management at scale,"AI 전용 올플래시 데이터 플랫폼 혁신, Forbes AI 50",High
+173,B. Semiconductor & Components,B3. Memory & Storage,Storage/Flash,Pure Storage,Storage/Flash,상장,미국,Deliver a modern data experience,AI 최적화 올플래시 및 파일 스토리지 전문,High
+174,B. Semiconductor & Components,B3. Memory & Storage,Storage/Data,NetApp,Storage/Data,상장,미국,Intelligent data infrastructure,통합 데이터 패브릭 및 AI 스토리지 관리,Medium
+175,B. Semiconductor & Components,B3. Memory & Storage,Storage/SSD,Solidigm,Storage/SSD,비상장,미국,Reimagining the future of storage,수냉식 핫스왑 NVMe SSD 등 고성능 저장 장치,Medium
+176,B. Semiconductor & Components,B3. Memory & Storage,HPC Storage,DDN Storage,HPC Storage,비상장,미국,AI and HPC data infrastructure,AI/HPC 전용 병렬 파일 시스템 스토리지,High
+177,B. Semiconductor & Components,B3. Memory & Storage,Data Platform,WEKA,Data Platform,비상장,미국,Data platform for AI workloads,AI 워크로드 최적화 고성능 데이터 플랫폼,High
+178,B. Semiconductor & Components,B3. Memory & Storage,Object Storage,MinIO,Object Storage,비상장,미국,High-performance object storage for AI,AI/ML 파이프라인용 고성능 오브젝트 스토리지,Medium
+179,B. Semiconductor & Components,B3. Memory & Storage,Data Orch,Hammerspace,Data Orch,비상장,미국,Global data environment for AI,하이브리드 클라우드 AI 데이터 오케스트레이션,Medium
+180,B. Semiconductor & Components,B3. Memory & Storage,Storage/RAG,Infinidat,Storage/RAG,비상장,미국/이스라엘,Enterprise storage for RAG workloads,RAG 워크로드 전용 고가용성 인피니박스,Medium
+181,B. Semiconductor & Components,B3. Memory & Storage,CXL/PCIe,Astera Labs,CXL/PCIe,상장,미국,Connectivity for AI infrastructure,CXL/PCIe 연결 반도체 및 스마트 패브릭 스위치,High
+182,B. Semiconductor & Components,B3. Memory & Storage,Memory IP,Rambus,Memory IP,상장,미국,Making data faster and safer,CXL/PCIe 컨트롤러 IP 및 보안 라이선싱,Medium
+183,B. Semiconductor & Components,B3. Memory & Storage,Memory I/F,Montage Technology,Memory I/F,상장,중국,Memory interface chipsets,CXL 인터페이스 칩 및 메모리 컨트롤러 선두,Medium
+184,B. Semiconductor & Components,B3. Memory & Storage,SSD Ctrl,Phison Electronics,SSD Ctrl,상장,대만,Storage solutions for the future,엔터프라이즈/소비자 SSD 컨트롤러 글로벌 리더,Medium
+185,B. Semiconductor & Components,B3. Memory & Storage,SSD Ctrl,Silicon Motion,SSD Ctrl,상장,대만,NAND flash controller technology,자동차 및 산업용 AI SSD 컨트롤러 선두,Medium
+186,B. Semiconductor & Components,B3. Memory & Storage,SSD Ctrl,FADU,SSD Ctrl,상장,한국,Enterprise SSD controller innovation,고효율 기업용 SSD 컨트롤러 및 데이터 배치,Medium
+187,B. Semiconductor & Components,B3. Memory & Storage,Memory Module,Innodisk,Memory Module,상장,대만,Industrial embedded flash and DRAM,CXL 메모리 모듈 및 임베디드 저장 장치 전문,Low
+188,B. Semiconductor & Components,B3. Memory & Storage,Memory SW,MemVerge,Memory SW,비상장,미국,CXL memory virtualization,CXL 메모리 가상화 및 티어링 SW 플랫폼,Medium
+189,B. Semiconductor & Components,B3. Memory & Storage,Memory/Fabric,UnifabriX,Memory/Fabric,비상장,이스라엘,Memory-over-Fabrics technology,Memory-over-Fabrics 기반 자원 풀링 기술,Low
+190,B. Semiconductor & Components,B3. Memory & Storage,Memory/Compute,XCENA,Memory/Compute,비상장,미국,Computational memory for CXL,CXL 3.x 기반 연산형 메모리 솔루션,Low
+191,B. Semiconductor & Components,B3. Memory & Storage,Memory/HBM,NEO Semiconductor,Memory/HBM,비상장,미국,HBM design innovation,X-HBM 등 고대역폭 메모리 설계 혁신,Low
+192,B. Semiconductor & Components,B3. Memory & Storage,Fabric Orch,Jackrabbit Labs,Fabric Orch,비상장,미국,CXL fabric orchestration,CXL 및 패브릭 오케스트레이션 관리 SW,Low
+193,B. Semiconductor & Components,B4. Networking & Interconnect,Ethernet Switch,Arista Networks,Ethernet Switch,상장,미국,Cloud networking for the modern data era,AI 백엔드용 고속 이더넷 스위치 시장 주도,High
+194,B. Semiconductor & Components,B4. Networking & Interconnect,Networking,Cisco,Networking,상장,미국,Powering an inclusive future for all,통합 엣지 플랫폼 및 AI 네트워크 보안 선두,High
+195,B. Semiconductor & Components,B4. Networking & Interconnect,Optical/ASIC,Marvell,Optical/ASIC,상장,미국,Technology that moves data,AI 전용 광학 칩셋 및 커스텀 ASIC 리더,High
+196,B. Semiconductor & Components,B4. Networking & Interconnect,Optics/Laser,Coherent,Optics/Laser,상장,미국,Empowering innovations in photonics,AI 광통신용 광모듈 및 레이저 기술 핵심,High
+197,B. Semiconductor & Components,B4. Networking & Interconnect,Optics/Trans,Lumentum,Optics/Trans,상장,미국,Photonic solutions for the digital age,고성능 데이터 전송 부품 하이퍼스케일러 공급,Medium
+198,B. Semiconductor & Components,B4. Networking & Interconnect,Optics/Transport,Ciena,Optics/Transport,상장,미국,The networking specialist,DC 간 고속 광통신 장비 및 지능형 네트워크,Medium
+199,B. Semiconductor & Components,B4. Networking & Interconnect,InfiniBand,Mellanox (NVIDIA),InfiniBand,인수,이스라엘,Accelerating AI networking,"NVIDIA 인수, InfiniBand/ConnectX AI 네트워킹 핵심",High
+200,B. Semiconductor & Components,B4. Networking & Interconnect,AI Ethernet,NVIDIA Spectrum-X,AI Ethernet,상장,미국,AI-optimized Ethernet,AI 워크로드 최적화 이더넷 네트워킹 플랫폼,High
+201,B. Semiconductor & Components,B4. Networking & Interconnect,Connector,Amphenol,Connector,상장,미국,The world's interconnect leader,AI 서버용 고속 커넥터/케이블 어셈블리 1위,High
+202,B. Semiconductor & Components,B4. Networking & Interconnect,Connector,TE Connectivity,Connector,상장,스위스,Every connection counts,DC용 고속 인터커넥트 및 전력 커넥터 리더,High
+203,B. Semiconductor & Components,B4. Networking & Interconnect,Connector,Molex,Connector,비상장,미국,Creating connections for life,고속 데이터 커넥터 및 광학 모듈 전문,Medium
+204,B. Semiconductor & Components,B4. Networking & Interconnect,Connector,Samtec,Connector,비상장,미국,Service is our technology,고속 PCIe/CXL 커넥터 및 케이블 어셈블리,Medium
+205,B. Semiconductor & Components,B4. Networking & Interconnect,SerDes/AEC,Credo Technology,SerDes/AEC,상장,미국,Redefining high-speed connectivity,고속 SerDes 및 AEC 케이블 기술 AI DC 수혜,High
+206,B. Semiconductor & Components,B4. Networking & Interconnect,Connectivity IP,Alphawave Semi,Connectivity IP,상장,캐나다/영국,Multi-standard connectivity silicon,"고속 연결 반도체 IP, DC 인터커넥트 핵심",Medium
+207,B. Semiconductor & Components,B4. Networking & Interconnect,Optical Mfg,Fabrinet,Optical Mfg,상장,태국/미국,Precision optical manufacturing,광학 모듈 및 정밀 광학 부품 위탁 제조,Medium
+208,B. Semiconductor & Components,B4. Networking & Interconnect,Optical Trans,Applied Optoelectronics,Optical Trans,상장,미국,Fiber optic transceivers,DC용 광트랜시버 모듈 제조,Medium
+209,B. Semiconductor & Components,B4. Networking & Interconnect,Switch/Router,Juniper Networks,Switch/Router,상장,미국,AI-native networking,"HPE 인수, AI 네이티브 네트워킹 플랫폼",High
+210,B. Semiconductor & Components,B4. Networking & Interconnect,Cable,Leoni,Cable,상장,독일,Solutions for energy and data management,DC용 특수 케이블 및 배선 시스템 공급,Low
+211,B. Semiconductor & Components,B4. Networking & Interconnect,Optical Conn,Senko Advanced,Optical Conn,비상장,일본,Fiber optic connectivity,광섬유 커넥터 및 DC 광케이블 인프라 전문,Low
+212,B. Semiconductor & Components,B5. Server & System Integration,Server/ODM,Super Micro (SMCI),Server/ODM,상장,미국/대만,Total IT solutions for today's data center,"AI GPU 서버 최대 공급업체, 액체 냉각 통합",High
+213,B. Semiconductor & Components,B5. Server & System Integration,Server/OEM,Dell Technologies,Server/OEM,상장,미국,Technologies that drive human progress,PowerEdge AI 서버 및 엔터프라이즈 인프라 리더,High
+214,B. Semiconductor & Components,B5. Server & System Integration,Server/OEM,HPE,Server/OEM,상장,미국,Advancing the way people live and work,"Juniper 인수, AI 서버 및 HPC 시스템 통합",High
+215,B. Semiconductor & Components,B5. Server & System Integration,Server/ODM,Quanta Computer,Server/ODM,상장,대만,"Quality, innovation and service","클라우드/AI 서버 ODM 세계 최대, 빅테크 주력 공급",High
+216,B. Semiconductor & Components,B5. Server & System Integration,Server/Mfg,Foxconn,Server/Mfg,상장,대만,Innovative manufacturing solutions,GB200 NVL72 랙 스케일 시스템 대량 생산,High
+217,B. Semiconductor & Components,B5. Server & System Integration,Server/ODM,Wistron,Server/ODM,상장,대만,Innovation for a better world,AI 서버 ODM 및 엣지 컴퓨팅 디바이스 제조,Medium
+218,B. Semiconductor & Components,B5. Server & System Integration,Server/ODM,Inventec,Server/ODM,상장,대만,Cloud and AI server solutions,클라우드/AI 서버 및 네트워크 장비 ODM,Medium
+219,B. Semiconductor & Components,B5. Server & System Integration,Server/GPU,Gigabyte,Server/GPU,상장,대만,Upgrade your life,AI GPU 서버 및 워크스테이션 제조,Medium
+220,B. Semiconductor & Components,B5. Server & System Integration,Server/OEM,Lenovo ISG,Server/OEM,상장,홍콩,Smarter technology for all,ThinkSystem AI 서버 및 엣지 인프라 글로벌 공급,Medium
+221,B. Semiconductor & Components,B5. Server & System Integration,Server/OEM,Cisco UCS,Server/OEM,상장,미국,Unified computing systems,UCS 서버 및 하이퍼컨버지드 인프라,Medium
+222,B. Semiconductor & Components,B5. Server & System Integration,HPC/AI System,Penguin Solutions,HPC/AI System,비상장,미국,AI/HPC turnkey cluster systems,AI/HPC 턴키 클러스터 시스템 구축,Medium
+223,B. Semiconductor & Components,B5. Server & System Integration,AI System,NVIDIA DGX/HGX,AI System,상장,미국,Reference AI computing platforms,DGX/HGX 레퍼런스 AI 서버 플랫폼,High
+224,B. Semiconductor & Components,B5. Server & System Integration,HCI,Nutanix,HCI,상장,미국,The leader in hybrid multicloud computing,하이퍼컨버지드 인프라 및 AI 워크로드 관리,Medium
+225,B. Semiconductor & Components,B5. Server & System Integration,Server/OEM,Inspur,Server/OEM,비상장,중국,Intelligent computing technology leader,"중국 AI 서버 시장 1위, 글로벌 3위권",Medium
+226,B. Semiconductor & Components,B6. Advanced Packaging & Components,Foundry/Pkg,TSMC,Foundry/Pkg,상장,대만,The world's dedicated semiconductor foundry,"CoWoS/InFO 어드밴스드 패키징 독보적 1위, AI 칩 생산 핵심",High
+227,B. Semiconductor & Components,B6. Advanced Packaging & Components,OSAT,ASE Technology,OSAT,상장,대만,Global semiconductor packaging leader,"세계 최대 반도체 후공정(OSAT), HBM 패키징",High
+228,B. Semiconductor & Components,B6. Advanced Packaging & Components,OSAT,Amkor Technology,OSAT,상장,미국/한국,Enabling innovation in electronics,"어드밴스드 패키징 글로벌 2위, 2.5D/3D 패키징",High
+229,B. Semiconductor & Components,B6. Advanced Packaging & Components,Foundry/Pkg,Samsung Foundry,Foundry/Pkg,상장,한국,Technology for a better tomorrow,GAA 공정 및 I-Cube 2.5D 패키징 기술,High
+230,B. Semiconductor & Components,B6. Advanced Packaging & Components,Foundry/Pkg,Intel Foundry,Foundry/Pkg,상장,미국,Creating the future of semiconductor manufacturing,Foveros 3D 패키징 및 EMIB 인터커넥트 기술,High
+231,B. Semiconductor & Components,B6. Advanced Packaging & Components,Foundry,GlobalFoundries,Foundry,상장,미국,Reshaping the semiconductor industry,성숙 공정 및 RF/아날로그 칩 파운드리,Medium
+232,B. Semiconductor & Components,B6. Advanced Packaging & Components,Foundry,UMC,Foundry,상장,대만,Leading specialty foundry,"성숙 공정 파운드리, 자동차/IoT AI 칩 생산",Medium
+233,B. Semiconductor & Components,B6. Advanced Packaging & Components,Substrate,Ibiden,Substrate,상장,일본,Creating electronics to change the world,AI 칩용 고성능 FC-BGA 기판 세계 1위,High
+234,B. Semiconductor & Components,B6. Advanced Packaging & Components,Substrate,Shinko Electric,Substrate,상장,일본,Advanced packaging substrates,"고다층 FC-BGA 기판, AI GPU 패키징 핵심 공급",High
+235,B. Semiconductor & Components,B6. Advanced Packaging & Components,PCB/Substrate,Unimicron,PCB/Substrate,상장,대만,Advanced circuit board solutions,고다층 PCB 및 ABF 기판 제조 리더,Medium
+236,B. Semiconductor & Components,B6. Advanced Packaging & Components,Materials,Resonac,Materials,상장,일본,Chemistry for a sustainable world,반도체 후공정 소재(몰드/본딩) 글로벌 리더,Medium
+237,B. Semiconductor & Components,B6. Advanced Packaging & Components,ABF Film,Ajinomoto Fine-Techno,ABF Film,비상장,일본,Essential substrate material innovation,"ABF 필름 독점적 공급, AI 칩 기판 핵심 소재",High
+238,B. Semiconductor & Components,B6. Advanced Packaging & Components,OSAT,Hana Micron,OSAT,상장,한국,Advanced semiconductor packaging,HBM TSV 후공정 및 어드밴스드 패키징 확장,Medium
+239,B. Semiconductor & Components,B6. Advanced Packaging & Components,OSAT,JCET Group,OSAT,상장,중국,Integrated circuit packaging solutions,"중국 최대 OSAT, 플립칩/WLP 패키징",Medium
+240,B. Semiconductor & Components,B6. Advanced Packaging & Components,PCB,Nan Ya PCB,PCB,상장,대만,High-layer PCB manufacturing,AI 서버용 고다층 PCB 제조,Medium
+241,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Equinix,Operator/Colo,상장,미국,Connect the world's leaders,글로벌 1위 상호 연결 플랫폼 및 IX 허브,High
+242,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Digital Realty,Operator/Colo,상장,미국,Supporting what matters most,"AI 전용 REITs, PlatformDIGITAL 전략",High
+243,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,QTS Data Centers,Operator/Colo,비상장,미국,Powering AI infrastructure,Blackstone 인수 후 대규모 AI 캠퍼스 투자,High
+244,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,CyrusOne,Operator/Colo,비상장,미국,Enterprise-class data centers,하이퍼스케일 전용 고밀도 DC 운영 전문,High
+245,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Vantage Data Centers,Operator/Colo,비상장,미국,Sustainable hyperscale campuses,친환경 지속가능 AI 데이터센터 전세계 확장,High
+246,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,CoreWeave DC,Operator/Colo,비상장,미국,Purpose-built AI cloud infrastructure,GPU 특화 데이터센터 급속 확장,High
+247,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Compass Datacenters,Operator/Colo,비상장,미국,Hyperscale campus data centers,하이퍼스케일 전용 캠퍼스 DC 선두,High
+248,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,NTT Global DC,Operator/Colo,상장,일본/유럽,Connecting the future,베를린/파리 등 유럽 내 대형 캠퍼스 구축,Medium
+249,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Iron Mountain,Operator/Colo,상장,미국,Protecting and elevating the power of work,데이터 보안 및 에코시스템 중심 콜로케이션,Medium
+250,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Aligned Data Centers,Operator/Colo,인수(40B),미국,Adaptive data center infrastructure,"NVIDIA/MS 컨소시엄 인수, 냉각 혁신 강점",High
+251,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Switch,Operator/Colo,비상장,미국,Future-proof data centers,독자적 냉각 시스템 및 높은 보안성 보유,Medium
+252,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,CoreSite,Operator/Colo,상장,미국,Interconnection-rich data centers,상호 연결 중심 DC (American Tower 계열),Medium
+253,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Global Switch,Operator/Colo,비상장,영국,Sustainable data centers,"유럽 기반 친환경 DC, CoreWeave 대규모 배포",Medium
+254,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Yondr Group,Operator/Colo,비상장,영국/미국,AI-scale hyperscale DC,AI급 하이퍼스케일 DC 설계/구축/운영 통합,High
+255,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Stack Infrastructure,Operator/Colo,비상장,미국,Built for hyperscale,IPI Partners 계열 하이퍼스케일 DC 운영,Medium
+256,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,EdgeConneX,Operator/Colo,비상장,미국,Edge to hyperscale DC,엣지-하이퍼스케일 DC 글로벌 네트워크,Medium
+257,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Kao Data,Operator/Colo,비상장,영국,AI and HPC colocation,AI 및 HPC 인프라 전문 콜로케이션 운영,Medium
+258,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Green Mountain,Operator/Colo,비상장,노르웨이,100% renewable powered DC,수냉 및 신재생 기반 100% 친환경 DC,Medium
+259,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,DataBank,Operator/Colo,비상장,미국,Edge computing colocation,엣지 컴퓨팅 중심 콜로케이션 선두주자,Medium
+260,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Cologix,Operator/Colo,비상장,미국/캐나다,Network-rich interconnection,북미 엣지 인프라 및 상호 연결 허브,Low
+261,C. Operations & Cloud,C1. DC Operator & Colocation,Neocloud,Crusoe Energy,Neocloud,비상장,미국,Clean computing for AI,"좌초 가스/청정 에너지 기반 AI DC 운영, $10B+ 기업가치",High
+262,C. Operations & Cloud,C1. DC Operator & Colocation,Neocloud,Applied Digital,Neocloud,상장,미국,Next-gen AI cloud and HPC,AI 클라우드 및 HPC 호스팅 DC 운영,Medium
+263,C. Operations & Cloud,C1. DC Operator & Colocation,Neocloud,Hut 8,Neocloud,상장,캐나다/미국,Digital infrastructure for AI,유휴 인프라 기반 AI 네오클라우드 운영,Medium
+264,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Khazna,Operator/Colo,비상장,UAE,Middle East's largest DC operator,중동 지역 최대 규모 AI 데이터센터 운영,Medium
+265,C. Operations & Cloud,C1. DC Operator & Colocation,Operator/Colo,Scaleway,Operator/Colo,비상장,프랑스,European sovereign cloud,유럽 기반 독립형 클라우드 및 DC 서비스,Low
+266,C. Operations & Cloud,C1. DC Operator & Colocation,Infra Deploy,Introl,Infra Deploy,비상장,글로벌,GPU infrastructure deployment,"10만개 이상 GPU 구축 실적, 인프라 설치 전문",Low
+267,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Hyperscaler,AWS (Amazon),Hyperscaler,상장,미국,Earth's most customer-centric company,"글로벌 클라우드 1위, Bedrock/SageMaker AI 플랫폼",High
+268,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Hyperscaler,Microsoft Azure,Hyperscaler,상장,미국,Empower every person and organization,"OpenAI 독점 파트너, Azure AI 풀스택 서비스",High
+269,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Hyperscaler,Google Cloud,Hyperscaler,상장,미국,Accelerating every organization's AI journey,"Vertex AI, TPU 기반 AI 학습/추론 클라우드",High
+270,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Hyperscaler,Oracle Cloud,Hyperscaler,상장,미국,Cloud infrastructure built for AI,"AI 슈퍼클러스터, GPU 클라우드 급성장",High
+271,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Hyperscaler,IBM Cloud,Hyperscaler,상장,미국,AI and hybrid cloud solutions,watsonx AI 플랫폼 및 하이브리드 클라우드,Medium
+272,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,CoreWeave,GPU Cloud,비상장,미국,The AI hyperscaler,"NVIDIA 전략적 파트너, 초대형 GPU 클라우드, IPO 완료",High
+273,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Lambda Labs,GPU Cloud,비상장,미국,GPU cloud for AI,합리적 가격의 AI 특화 전용 클라우드,High
+274,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Nscale,GPU Cloud,비상장,영국,Full-stack AI cloud hyperscaler,"$14.6B 기업가치, $1.1B Series B, Stargate 파트너",High
+275,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Nebius,GPU Cloud,상장(NBIS),네덜란드,AI-native cloud infrastructure,"Yandex 스핀오프, $27B Meta 계약, $19.4B MS 계약",High
+276,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Crusoe Cloud,GPU Cloud,비상장,미국,Clean AI cloud computing,"청정 에너지 기반 AI 클라우드, $10B+ 기업가치",High
+277,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,TensorWave,GPU Cloud,비상장,미국,AMD-native AI cloud,"북미 최대 AMD 네이티브 AI 클러스터 (8,192 MI325X)",Medium
+278,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Vultr,GPU Cloud,비상장,미국,Cloud infrastructure worldwide,글로벌 32개 지역 AI 전용 베어메탈 공급,Medium
+279,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Voltage Park,GPU Cloud,비상장,미국,Large-scale GPU cluster leasing,대규모 GPU 클러스터 임대 특화,Medium
+280,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,Together AI,Inference ISP,비상장,미국,Open AI infrastructure,"분산 트레이닝 최적화 및 추론 API 리더, $305M 유치",High
+281,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,Fireworks AI,Inference ISP,비상장,미국,Fastest AI inference platform,초고속 모델 추론 서비스 및 개발 도구,Medium
+282,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,DeepInfra,Inference ISP,비상장,미국,Cloud-based LLM inference,클라우드 기반 LLM 추론 가속 API,Medium
+283,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,Replicate,Inference ISP,비상장,미국,Run AI models in the cloud,오픈소스 모델의 클라우드 API 즉시 배포,Medium
+284,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,OpenRouter,Inference ISP,비상장,미국,Unified LLM API gateway,"400개 이상 LLM 통합 API 서비스, 비용 최적화",Medium
+285,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Inference ISP,Hyperbolic,Inference ISP,비상장,미국,Open-access AI cloud,경제적인 GPU 렌탈 및 오픈소스 추론 가속,Low
+286,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Orchestration,Run.ai,Orchestration,인수(NVDA),이스라엘,GPU orchestration for AI,GPU 가상화 및 자원 스케줄링 (NVIDIA 인수),High
+287,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Orchestration,Anyscale,Orchestration,비상장,미국,Scale AI applications with Ray,"Ray 프레임워크 상용화, 대규모 분산 연산 핵심",High
+288,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Serverless,Modal,Serverless,비상장,미국,Serverless GPU compute,서버리스 GPU 연산 및 데이터 처리 인프라,Medium
+289,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,Serverless,Baseten,Serverless,비상장,미국,Deploy AI models at scale,고성능 AI 애플리케이션 배포 및 호스팅,Medium
+290,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud,Fluidstack,GPU Cloud,비상장,영국,Aggregated GPU cloud,유휴 GPU 자원 통합 대여 및 고성능 연산 제공,Low
+291,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,DePIN/GPU,io.net,DePIN/GPU,상장(T),미국,Decentralized GPU network,솔라나 기반 세계 최대 분산 GPU 네트워크,Medium
+292,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,DePIN/Cloud,Akash Network,DePIN/Cloud,상장(T),미국,Open-source compute marketplace,블록체인 기반 오픈 소스 컴퓨팅 마켓,Low
+293,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,DePIN/GPU,Aethir,DePIN/GPU,상장(T),싱가포르,Enterprise decentralized GPU,엔터프라이즈급 분산 GPU 렌더링/추론 서비스,Low
+294,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,DePIN/GPU,Render Network,DePIN/GPU,상장(T),미국,Distributed GPU rendering,유휴 자원 활용 렌더링 및 AI 연산 공유,Low
+295,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,ISP,DeepSeek,ISP,비상장,중국,Unravel the mystery of AGI,극강의 효율성 모델 개발 및 자체 ISP 운영,High
+296,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,ISP,SiliconFlow,ISP,비상장,중국,One-stop AI inference platform,원스톱 AI 추론 및 파인튜닝 플랫폼,Medium
+297,C. Operations & Cloud,C2. Hyperscaler & GPU Cloud,GPU Cloud/DePIN,Spheron,GPU Cloud/DePIN,비상장,미국,Decentralized GPU cloud,베어메탈 GPU 풀링 및 웹3 결제 기반 클라우드,Low
+298,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Data/MLOps,Databricks,Data/MLOps,비상장,미국,Democratize data and AI,"레이크하우스 플랫폼, Mosaic ML 인수, AI 데이터 통합",High
+299,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Data Cloud,Snowflake,Data Cloud,상장,미국,Mobilize the world's data,"클라우드 데이터 웨어하우스, Cortex AI 통합",High
+300,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Database,MongoDB,Database,상장,미국,Build faster. Build smarter,AI 앱용 문서 DB 및 벡터 검색 기능 통합,High
+301,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Data Streaming,Confluent,Data Streaming,상장,미국,Data in motion,Apache Kafka 기반 실시간 데이터 스트리밍,Medium
+302,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Data Integration,Fivetran,Data Integration,비상장,미국,Automated data movement,자동화 데이터 파이프라인 및 ETL 리더,Medium
+303,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Data Transform,dbt Labs,Data Transform,비상장,미국,Transform data in your warehouse,데이터 변환 및 분석 엔지니어링 표준 도구,Medium
+304,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,MLOps,Weights & Biases,MLOps,인수(CoreWeave),미국,Developer tools for ML,"ML 실험 추적/모델 관리, CoreWeave $1.7B 인수",High
+305,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Model Hub,Hugging Face,Model Hub,비상장,미국/프랑스,The AI community building the future,"AI 모델 허브 및 오픈소스 에코시스템 중심, $4.5B",High
+306,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,MLOps,Comet ML,MLOps,비상장,미국,ML experiment management,ML 실험 추적 및 모델 프로덕션 관리,Medium
+307,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Model Serving,BentoML,Model Serving,비상장,미국,Build and deploy AI applications,ML 모델 서빙 및 배포 자동화 프레임워크,Medium
+308,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Feature Store,Tecton,Feature Store,비상장,미국,Real-time ML features,실시간 ML 피처 스토어 및 데이터 파이프라인,Medium
+309,D. AI Platform & Data Infra,D1. Data Infrastructure & MLOps,Model Deploy,Seldon,Model Deploy,비상장,영국,ML deployment on Kubernetes,쿠버네티스 기반 ML 모델 배포 및 모니터링,Low
+310,D. AI Platform & Data Infra,D2. Vector DB & AI-Native Data,Vector DB,Pinecone,Vector DB,비상장,미국,Vector database for AI applications,"벡터 데이터베이스 1위, RAG 인프라 핵심, $130M+ 유치",High
+311,D. AI Platform & Data Infra,D2. Vector DB & AI-Native Data,Vector DB,Weaviate,Vector DB,비상장,네덜란드,Open-source vector database,"오픈소스 벡터 DB, 시맨틱 검색 최적화",High
+312,D. AI Platform & Data Infra,D2. Vector DB & AI-Native Data,Vector DB,Qdrant,Vector DB,비상장,독일,High-performance vector search,고성능 Rust 기반 벡터 유사도 검색 엔진,Medium
+313,D. AI Platform & Data Infra,D2. Vector DB & AI-Native Data,Vector DB,Milvus (Zilliz),Vector DB,비상장,미국/중국,Scalable open-source vector DB,대규모 벡터 검색 오픈소스 DB,High
+314,D. AI Platform & Data Infra,D2. Vector DB & AI-Native Data,Vector DB,Chroma,Vector DB,비상장,미국,AI-native embedding database,"경량 오픈소스 벡터 DB, AI 앱 임베딩 저장",Medium
+315,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Data Labeling,Scale AI,Data Labeling,비상장,미국,Accelerate the development of AI,"AI 데이터 라벨링/RLHF 1위, $29B+ 기업가치 (Meta 49%)",High
+316,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Data Labeling,Labelbox,Data Labeling,비상장,미국,Training data platform for AI,"AI 학습 데이터 라벨링, 80%+ 미국 top AI 연구소",High
+317,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Data Labeling,Appen,Data Labeling,상장,호주,Reliable AI training data,글로벌 AI 학습 데이터 수집 및 어노테이션,Medium
+318,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Data-Centric,Snorkel AI,Data-Centric,비상장,미국,Programmatic data development,"프로그래매틱 데이터 라벨링, $1.3B 기업가치",High
+319,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Synthetic Data,Gretel AI,Synthetic Data,인수(NVIDIA),미국,Synthetic data for safe AI,"NVIDIA 2025년 3월 인수, 합성 데이터 생성",High
+320,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Data Labeling,Surge AI,Data Labeling,비상장,미국,High-quality AI training data,고품질 AI 학습 데이터 및 RLHF 라벨링,Medium
+321,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Annotation,V7 Labs,Annotation,비상장,영국,AI-assisted data annotation,AI 보조 어노테이션 플랫폼,Medium
+322,D. AI Platform & Data Infra,D3. Data Labeling & Synthetic Data,Synthetic Data,Tonic AI,Synthetic Data,비상장,미국,Synthetic test data for developers,"합성 테스트 데이터 생성, $46.7M 유치",Medium
+323,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,LLM Framework,LangChain,LLM Framework,비상장,미국,Build context-aware AI applications,"LLM 앱 개발 표준 프레임워크, 80K+ GitHub stars, $1.25B",High
+324,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,RAG Framework,LlamaIndex,RAG Framework,비상장,미국,Data framework for LLM applications,데이터 인덱싱 및 RAG 구현 최적화 도구,High
+325,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,RAG Pipeline,Haystack (deepset),RAG Pipeline,비상장,독일,Build NLP pipelines,산업용 RAG 파이프라인 프레임워크,Medium
+326,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,LLM Router,Unify,LLM Router,비상장,영국,Optimal LLM routing API,여러 ISP 중 비용/성능 최적 경로 추천 API,Medium
+327,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,LLM DevOps,Vellum,LLM DevOps,비상장,미국,AI product development platform,LLM 프롬프트 관리 및 평가 플랫폼,Low
+328,D. AI Platform & Data Infra,D4. LLM Middleware & Frameworks,AI Gateway,Portkey,AI Gateway,비상장,인도/미국,AI gateway and observability,LLM API 게이트웨이 및 가시성 플랫폼,Low
+329,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/AGI,OpenAI,LLM/AGI,비상장,미국,Ensure AGI benefits all of humanity,"GPT-4o/o3, ChatGPT, DALL-E, Sora 등 생성형 AI 선두, $840B",High
+330,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Safety,Anthropic,LLM/Safety,비상장,미국,AI safety and research,"Claude 시리즈, 안전한 AI 개발 리더",High
+331,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Research,Google DeepMind,LLM/Research,상장(모회사),영국/미국,Solve intelligence to advance science,"Gemini 모델, AlphaFold 등 AI 연구 최전선",High
+332,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Open,Meta AI (FAIR),LLM/Open,상장(모회사),미국,Build the future of human connection,"Llama 오픈소스 모델, 메타버스/AI 연구",High
+333,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Open,Mistral AI,LLM/Open,비상장,프랑스,Open and portable generative AI,"유럽 AI 모델 주권 상징, 고성능 오픈 LLM",High
+334,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Enterprise,Cohere,LLM/Enterprise,비상장,캐나다,Enterprise AI that means business,엔터프라이즈 전용 LLM 및 RAG 플랫폼,High
+335,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM,xAI,LLM,비상장,미국,Understand the true nature of the universe,"Elon Musk 설립, Grok 모델 및 Colossus 클러스터",High
+336,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Enterprise,AI21 Labs,LLM/Enterprise,비상장,이스라엘,AI for the enterprise,"Jamba 모델, 엔터프라이즈 언어 AI 플랫폼",Medium
+337,E. Foundation Models & Generation,E1. Foundation Models & LLM,Generative,Stability AI,Generative,비상장,영국,"AI by the people, for the people",Stable Diffusion 오픈소스 이미지 생성 모델,Medium
+338,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM/Sovereign,Aleph Alpha,LLM/Sovereign,비상장,독일,European sovereign AI,"유럽 소버린 AI, PhariaAI 플랫폼",Medium
+339,E. Foundation Models & Generation,E1. Foundation Models & LLM,Multimodal,Reka AI,Multimodal,비상장,미국/영국,Multimodal AI models,"멀티모달 LLM, 비디오/오디오 이해 특화",Medium
+340,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM,Inflection AI,LLM,비상장,미국,Personal AI for everyone,Pi 개인 AI 어시스턴트 (MS 인재 이동),Medium
+341,E. Foundation Models & Generation,E1. Foundation Models & LLM,Conversational,Character.ai,Conversational,비상장,미국,Personalized AI for everyone,"캐릭터 기반 대화형 AI, 20M MAU",Medium
+342,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM,Naver (HyperCLOVA X),LLM,상장,한국,Connect everything and everyone,"한국어 최적화 LLM, B2B/B2C AI 서비스",Medium
+343,E. Foundation Models & Generation,E1. Foundation Models & LLM,LLM,LG AI Research,LLM,상장(모회사),한국,AI for a better life,EXAONE 멀티모달 AI 모델 개발,Medium
+344,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Video Gen,Runway,Video Gen,비상장,미국,Advancing creativity with AI,"Gen-3 Alpha 비디오 생성 모델 선두, $545M 유치",High
+345,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Image Gen,Midjourney,Image Gen,비상장,미국,Exploring new mediums of thought,"텍스트-투-이미지 생성 AI 시장 선두, $10.5B",High
+346,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Avatar Video,Synthesia,Avatar Video,비상장,영국,AI video communications platform,"230+ AI 아바타, 140+ 언어, 기업 교육/마케팅",High
+347,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Avatar Video,HeyGen,Avatar Video,비상장,미국,AI-powered video creation,"사실적 아바타, 음성 복제, 4K 립싱크",High
+348,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Video Gen,Pika,Video Gen,비상장,미국,Make videos with AI,"AI 비디오 생성 및 편집, Forbes AI 50",High
+349,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Music Gen,Suno,Music Gen,비상장,미국,Make any song you can imagine,"AI 음악 생성 플랫폼, 텍스트-투-뮤직",High
+350,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Music Gen,Udio,Music Gen,비상장,미국,Create music with AI,고품질 AI 음악 생성 및 작곡 도구,Medium
+351,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Image Gen,Black Forest Labs,Image Gen,비상장,독일,Open generative AI models,FLUX 모델 기반 고품질 이미지 생성,Medium
+352,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Image Gen,Ideogram,Image Gen,비상장,캐나다,Creative AI for everyone,텍스트 렌더링 특화 이미지 생성 AI,Medium
+353,E. Foundation Models & Generation,E2. AI Video & Creative Generation,3D/Video,Luma AI,3D/Video,비상장,미국,Multimodal AI for 3D and video,Dream Machine 비디오/3D 생성 AI,Medium
+354,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Image/App,Photoroom,Image/App,비상장,프랑스,AI photo editor for commerce,"AI 기반 상업용 이미지 자동 편집, Forbes AI 50",Medium
+355,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Creative Suite,Adobe Firefly,Creative Suite,상장,미국,Creativity for all,생성형 AI 기반 Creative Cloud 통합,High
+356,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Design,Canva AI,Design,비상장,호주,Empowering the world to design,"Magic Studio, 190M+ 사용자, $26B 기업가치",High
+357,E. Foundation Models & Generation,E2. AI Video & Creative Generation,Enterprise Creative,Typeface AI,Enterprise Creative,비상장,미국,Enterprise content at the speed of AI,"전 Adobe CTO 설립, 브랜드 맞춤 AI 콘텐츠",Medium
+358,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Synthesis,ElevenLabs,Voice Synthesis,비상장,영국/미국,Make content universally accessible,"고품질 음성 합성 리더, $330M ARR, $11B 기업가치",High
+359,E. Foundation Models & Generation,E3. AI Voice & Audio,Speech-to-Text,Deepgram,Speech-to-Text,비상장,미국,Building the future of speech AI,"엔터프라이즈 음성 AI, Nova-3, $1.3B 기업가치",High
+360,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Platform,SoundHound AI,Voice Platform,상장,미국,Harnessing the power of voice,"브랜드용 음성 AI, $157-177M 매출 가이던스",High
+361,E. Foundation Models & Generation,E3. AI Voice & Audio,Speech-to-Text,AssemblyAI,Speech-to-Text,비상장,미국,Build with the best speech AI,"개발자 중심 STT API, Universal-2 모델",High
+362,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Infra,Vapi,Voice Infra,비상장,미국,Voice AI infrastructure for developers,"AI 에이전트용 음성 API, Twilio for AI agents",High
+363,E. Foundation Models & Generation,E3. AI Voice & Audio,Translation,DeepL,Translation,비상장,독일,Break down language barriers,"세계 최고 수준 독자 번역 AI, $400M+ 유치",High
+364,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Cloning,Resemble AI,Voice Cloning,비상장,캐나다,Real-time voice generation,"음성 생성/복제 및 실시간 변환, $15M+ 유치",Medium
+365,E. Foundation Models & Generation,E3. AI Voice & Audio,Fast TTS,LMNT,Fast TTS,비상장,미국,Expressive text-to-speech,"초고속 감성 표현 TTS, 개발자 중심",Medium
+366,E. Foundation Models & Generation,E3. AI Voice & Audio,Noise AI,Krisp,Noise AI,비상장,아르메니아/미국,AI-powered noise cancellation,"AI 노이즈 캔슬링, 억양 변환, 수십억 분 처리",Medium
+367,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Agent,Retell AI,Voice Agent,비상장,미국,Build production-ready voice agents,"실시간 음성 에이전트 플랫폼, SOC2/HIPAA",Medium
+368,E. Foundation Models & Generation,E3. AI Voice & Audio,Voice Agent,Bland AI,Voice Agent,비상장,미국,AI phone calling at scale,"자체 STT/LLM/TTS 통합, 초저지연 음성 에이전트",Medium
+369,E. Foundation Models & Generation,E3. AI Voice & Audio,Empathic Voice,Hume AI,Empathic Voice,비상장,미국,AI with emotional intelligence,"감성 인식 음성 AI, 독보적 포지셔닝, $50M+",Medium
+370,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,AI-Native IDE,Anysphere (Cursor),AI-Native IDE,비상장,미국,Build software faster with AI,"AI 코딩 에디터 리더, $1B+ ARR, $29.3B 기업가치",High
+371,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Autonomous Agent,Cognition (Devin),Autonomous Agent,비상장,미국,Build the future of AI software engineering,"자율 코딩 에이전트, Windsurf 인수, $10.2B 기업가치",High
+372,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Assistant,GitHub Copilot,Code Assistant,상장(MS),미국,Your AI pair programmer,"20M+ 사용자, 77K+ 기업, $1B+ ARR, Gartner MQ 리더",High
+373,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,AI IDE,Replit,AI IDE,비상장,미국,Build software without barriers,"브라우저 기반 AI IDE, 150K+ 유료, $3B 기업가치",High
+374,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Vibe Coding,Lovable,Vibe Coding,비상장,스웨덴,Build software with natural language,"AI 풀스택 앱 빌더, $200M+ ARR, $6.6B 기업가치",High
+375,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Vibe Coding,StackBlitz / Bolt.new,Vibe Coding,비상장,미국,Build full-stack apps in the browser,"브라우저 AI 앱 빌더, 2개월 만에 $20M ARR",High
+376,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code LLM,Poolside AI,Code LLM,비상장,미국,AI built for code,"코드 전용 파운데이션 모델, $12B 타겟, $626M 유치",High
+377,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code LLM,Magic AI,Code LLM,비상장,미국,Code-specific AI models,"코드 전용 모델, 100M 토큰 컨텍스트, $466M 유치",High
+378,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,CLI Agent,Claude Code (Anthropic),CLI Agent,비상장,미국,Agentic coding from the terminal,"CLI 코딩 에이전트, 출시 수개월 내 $500M+ 런레이트",High
+379,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Coding Agent,OpenAI Codex,Coding Agent,비상장,미국,AI agent for software engineering,VS Code/JetBrains용 SW 엔지니어링 에이전트,High
+380,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Enterprise Code,Augment Code,Enterprise Code,비상장,미국,AI for complex codebases,"대규모/레거시 코드베이스 전문, $977M 기업가치",Medium
+381,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,UI Generation,Vercel v0,UI Generation,비상장,미국,AI-powered UI generation,"AI React/Tailwind UI 생성, Vercel ($9.3B)의 제품",Medium
+382,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Assistant,Amazon Q Developer,Code Assistant,상장,미국,AI-powered development companion,AWS 통합 AI 코딩 어시스턴트,High
+383,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Intelligence,Sourcegraph (Cody),Code Intelligence,비상장,미국,Code intelligence platform,"코드 검색 및 AI 어시스턴트, $2.6B 기업가치",Medium
+384,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Quality,Qodo (Codium AI),Code Quality,비상장,이스라엘,AI code quality and testing,"AI 코드 품질/테스팅, 멀티에이전트 아키텍처",Medium
+385,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Completion,Tabnine,Code Completion,비상장,이스라엘,Privacy-first AI code assistant,"프라이버시 우선 AI 코드 완성, 에어갭/온프레미스",Medium
+386,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,OSS Coding Agent,Cline,OSS Coding Agent,오픈소스,미국,Open-source VS Code AI agent,"오픈소스 VS Code AI 에이전트, 30K+ stars, 5M+ 개발자",Medium
+387,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,IDE AI Agent,JetBrains (Junie),IDE AI Agent,비상장,체코,AI across JetBrains IDEs,8개 JetBrains IDE의 AI 코딩 에이전트,Medium
+388,F. AI Developer Tools & Agents,F1. AI Coding Agents & IDE,Code Assistant,Codestral (Mistral),Code Assistant,비상장,프랑스,Code-optimized language model,Mistral의 코드 전용 모델,Medium
+389,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Agent Platform,Sierra,Agent Platform,비상장,미국,Elevating the customer experience with AI,"Bret Taylor 설립, $150M ARR, $10B 기업가치",High
+390,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Multi-Agent,CrewAI,Multi-Agent,비상장,미국,Multi-agent orchestration framework,"역할 기반 멀티에이전트, 43K+ stars, Fortune 500 60%",High
+391,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,AI Orchestration,Airia,AI Orchestration,비상장,미국,Enterprise AI orchestration and governance,"엔터프라이즈 AI 오케스트레이션, 300+ 기업, $100M 유치",High
+392,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,General Agent,Manus AI,General Agent,인수(Meta),싱가포르,Autonomous multi-step task agent,"범용 자율 에이전트, Meta $2B+ 인수 (2025.12)",High
+393,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Agent Sandbox,E2B,Agent Sandbox,비상장,미국,Cloud sandbox for AI agents,"AI 에이전트용 클라우드 샌드박스, Perplexity/HF 사용",Medium
+394,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Tool Integration,Composio,Tool Integration,비상장,미국,"3,000+ app integrations for AI agents","AI 에이전트 툴 통합, 200+ 고객, $29M 유치",Medium
+395,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Memory Agents,Letta (MemGPT),Memory Agents,비상장,미국,Agents with persistent memory,"영속 메모리 에이전트 플랫폼, $10M 시드",Medium
+396,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,No-Code Agent,Lindy AI,No-Code Agent,비상장,미국,No-code AI agent builder,"노코드 에이전트 빌더, 1,600+ 앱 통합",Medium
+397,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Agent OS,Relevance AI,Agent OS,비상장,호주,Build teams of AI agents,"에이전트 OS, 40K 에이전트/월, $37M 유치",Medium
+398,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,AI Employees,Ema,AI Employees,비상장,미국,Universal AI employees for enterprise,"엔터프라이즈 AI 직원, CX/영업/마케팅, $61M 유치",Medium
+399,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Process Agent,Maisa AI,Process Agent,비상장,스페인,Agentic process automation,"규제 산업용 AI 에이전트, Gartner 선정",Medium
+400,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,OSS Agent,AutoGPT,OSS Agent,오픈소스,커뮤니티,Open-source autonomous agent,"선구적 오픈소스 자율 에이전트, 160K+ stars",Medium
+401,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Prof Services,Ravical,Prof Services,비상장,벨기에,AI agents for expert firms,"회계/세무/법률/HR용 AI 에이전트, 프리시드",Low
+402,F. AI Developer Tools & Agents,F2. AI Agent Infra & Orchestration,Workflow Agent,Thunk.AI,Workflow Agent,비상장,미국,No-code AI agent platform,"노코드 AI 에이전트, 99% 신뢰성, 초기 단계",Low
+403,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Enterprise Agent,Glean,Enterprise Agent,비상장,미국,AI-powered work assistant,"기업용 AI 검색/자동화, $100M+ ARR, $7.2B 기업가치",High
+404,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Agent Platform,Salesforce,Agent Platform,상장,미국,The customer company,Agentforce 기반 전사적 자율 에이전트 주도,High
+405,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Enterprise AI,ServiceNow,Enterprise AI,상장,미국,Make the world work better,Now Assist AI 기반 워크플로우 자동화 리더,High
+406,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,RPA/Agent,UiPath,RPA/Agent,상장,미국,AI-powered automation,"RPA + AI 시장 리더, Gartner Leader 5년 연속",High
+407,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,RPA/Agent,Automation Anywhere,RPA/Agent,비상장,미국,Intelligent automation for all,"클라우드 네이티브 RPA + AI, AWS GenAI 인증",High
+408,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Enterprise AI,C3.ai,Enterprise AI,상장,미국,Enterprise AI applications,"산업용 프리빌트 AI 앱, $98.8M 분기 매출",Medium
+409,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Enterprise AI,Writer,Enterprise AI,비상장,미국,Full-stack generative AI for enterprises,"엔터프라이즈 생성형 AI, Palmyra LLM, $1.9B 기업가치",High
+410,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Enterprise AI,Veritone,Enterprise AI,상장,미국,Enterprise AI orchestration,aiWare OS 기반 엔터프라이즈 AI 오케스트레이션,Low
+411,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,Process Mining,Celonis,Process Mining,비상장,독일,Process intelligence for business transformation,"프로세스 마이닝 카테고리 리더, 1,400+ 기업, $13B",High
+412,G. Enterprise AI Applications,G1. Enterprise AI & Workflow,IDP,ABBYY,IDP,비상장,미국,Intelligent document processing,"글로벌 IDP 리더, ML 문서 분류/추출",High
+413,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Enterprise Conv,Kore.ai,Enterprise Conv,비상장,미국,AI-first customer and employee experiences,"Gartner MQ Leader, MS 파트너, 400+ 기업, $150M 유치",High
+414,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Contact Center,Cognigy,Contact Center,비상장,독일,Enterprise conversational AI platform,"엔터프라이즈 다국어 컨택센터 AI, Gartner MQ Leader",High
+415,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Enterprise Voice,Parloa,Enterprise Voice,비상장,독일,AI agent management platform,"$350M Series D, 유럽 최대 대화형 AI 라운드",High
+416,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Omnichannel,Yellow.ai,Omnichannel,비상장,미국/인도,Dynamic automation platform,"135+ 언어, 드래그앤드롭, $1B+ 기업가치",Medium
+417,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,CX AI,Ada,CX AI,비상장,캐나다,AI-powered customer service automation,"AI CX 자동화, $190M 유치, Tiger/Accel 투자",Medium
+418,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,CX Analytics,Observe.AI,CX Analytics,비상장,미국,Conversational intelligence for contact centers,컨택센터 AI 분석 및 에이전트 어시스턴트,Medium
+419,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,CX AI,Uniphore,CX AI,비상장,미국/인도,Conversational AI and automation,"대화형 AI 및 고객 경험 자동화 플랫폼, $2.5B",Medium
+420,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Conv AI Builder,Voiceflow,Conv AI Builder,비상장,캐나다,Build AI agents collaboratively,"대화형 에이전트 구축 협업 플랫폼, $35M+ 유치",Medium
+421,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,Conv AI,OneReach.ai,Conv AI,비상장,미국,Bring your own model AI agents,"BYOM AI 에이전트 플랫폼, 엔터프라이즈 대상",Low
+422,G. Enterprise AI Applications,G2. Conversational AI & Voice Platform,CX Agent,Intercom,CX Agent,비상장,미국,Customer service platform with AI,Fin AI 에이전트 기반 고객 서비스 플랫폼,High
+423,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,AI Writing,Jasper AI,AI Writing,비상장,미국,AI-powered enterprise marketing platform,"엔터프라이즈 마케팅 AI, 50+ 템플릿, $1.5B 기업가치",High
+424,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,AI Writing,Grammarly,AI Writing,비상장,미국,Responsible AI that helps you communicate,"AI 작문 보조, 30M+ DAU, $13B 기업가치",High
+425,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Presentations,Gamma,Presentations,비상장,미국,A new medium for presenting ideas,"AI 프레젠테이션/문서 생성, 50M+ 사용자, $20M ARR",High
+426,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Meeting AI,Otter.ai,Meeting AI,비상장,미국,AI meeting assistant,"업계 선도 실시간 회의 전사, OtterPilot",High
+427,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Meeting AI,Fireflies.ai,Meeting AI,비상장,미국,AI meeting notes and transcription,"회의 녹음/전사/요약, AskFred AI",High
+428,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,AI Copywriting,Copy.ai,AI Copywriting,비상장,미국,Go-to-market AI platform,"마케팅 카피/워크플로우 자동화, 90+ 템플릿",Medium
+429,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Productivity,Notion AI,Productivity,비상장,미국,The connected workspace with AI,AI 기반 지식 관리 및 생산성 도구,High
+430,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Meeting Mgmt,Fellow,Meeting Mgmt,비상장,캐나다,AI-powered meeting management,"AI 회의 안건, 액션 아이템, 피드백, $34M+ 유치",Medium
+431,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Presentations,Beautiful.ai,Presentations,비상장,미국,AI-driven smart presentations,"AI 스마트 프레젠테이션 템플릿, $32M+ 유치",Medium
+432,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,AI Calendar,Reclaim.ai,AI Calendar,비상장,미국,AI calendar management,"AI 캘린더 관리, 자동 스케줄링, $25M+ 유치",Low
+433,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,Meeting AI,Fathom,Meeting AI,비상장,미국,AI meeting summaries,"빠른 회의 요약, CRM 통합, 무료 코어",Medium
+434,G. Enterprise AI Applications,G3. AI Productivity & Collaboration,AI Notes,Mem,AI Notes,비상장,미국,AI-native note taking,"AI 네이티브 노트, Deep Search/Copilot, $29M+ 유치",Low
+435,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",AI Search,Perplexity AI,AI Search,비상장,미국,Ask anything. Get answers.,"AI 대화형 검색, 780M+ 쿼리/월, $20B+ 기업가치",High
+436,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",AI Browser,Dia (The Browser Company),AI Browser,인수(Atlassian),미국,AI-native browser experience,"AI 네이티브 브라우저, Atlassian $610M 인수",High
+437,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",AI Search,You.com,AI Search,비상장,미국,Your AI search engine,"맞춤형 AI 검색, 전 Salesforce 수석과학자 설립",Medium
+438,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",Developer Search,Phind,Developer Search,비상장,미국,AI search for developers,개발자/기술 쿼리 최적화 AI 검색,Medium
+439,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",Neural Search,Exa AI,Neural Search,비상장,미국,Semantic web search API for AI,"AI 앱용 시맨틱 웹 검색 API, $22M+ 유치",Medium
+440,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",AI Browser,Opera,AI Browser,상장,노르웨이,Innovation that's simply better,"Aria AI 챗봇 탑재 브라우저, AI는 기능 수준",Medium
+441,G. Enterprise AI Applications,"G4. AI Search, Browser & Consumer",Privacy Search,Brave AI,Privacy Search,비상장,미국,Privacy-first AI search,프라이버시 브라우저 내 Llama/Mistral 기반 AI 검색,Medium
+442,G. Enterprise AI Applications,G5. Industrial/Process AI,Quality Inspection,Landing AI,Quality Inspection,비상장,미국,Computer vision for manufacturing,"Andrew Ng 설립, 노코드 CV 제조 검사",High
+443,G. Enterprise AI Applications,G5. Industrial/Process AI,Mfg AI Platform,Tulip Interfaces,Mfg AI Platform,비상장,미국,No-code frontline manufacturing,"노코드 제조, 43K 앱, 60K 작업자, $1.3B 기업가치",High
+444,G. Enterprise AI Applications,G5. Industrial/Process AI,Predictive Maint,Augury,Predictive Maint,비상장,이스라엘/미국,Machine health via AI,"음향/진동 기반 예측 정비, $369M 유치",High
+445,G. Enterprise AI Applications,G5. Industrial/Process AI,Process Optimization,AspenTech,Process Optimization,상장,미국,Industrial AI for sustainability,"40+ 년 프로세스 산업, AI 예측 정비 Mtell",High
+446,G. Enterprise AI Applications,G5. Industrial/Process AI,Machine Vision,Cognex,Machine Vision,상장,미국,Machine vision for industry,"머신 비전 시장 리더, 딥러닝 통합 확대",High
+447,G. Enterprise AI Applications,G5. Industrial/Process AI,Digital Twin,XMPro,Digital Twin,비상장,미국/호주,AI-powered intelligent business operations,"AI iBOS, Multi-Agent Generative Systems",Medium
+448,G. Enterprise AI Applications,G5. Industrial/Process AI,Industrial AI,SparkCognition,Industrial AI,비상장,미국,AI for critical industrial assets,"자산 보호/결함 예측, Boeing/국방 고객",Medium
+449,G. Enterprise AI Applications,G5. Industrial/Process AI,Mfg Data,Sight Machine,Mfg Data,비상장,미국,Manufacturing data platform,"공장 데이터 통합/분석, Siemens/NVIDIA 파트너",Medium
+450,G. Enterprise AI Applications,G5. Industrial/Process AI,Mfg IoT,iProd,Mfg IoT,비상장,이탈리아,Manufacturing monitoring and predictive AI,"SME 제조 모니터링, AiProd 예측 정비 기능",Low
+451,G. Enterprise AI Applications,G5. Industrial/Process AI,Mfg Automation,Bright Machines,Mfg Automation,비상장,미국,Intelligent manufacturing automation,로보틱스+AI 비전 통합 지능형 제조 자동화,Medium
+452,H. Vertical AI,H1. Healthcare & Life Science AI,Medical Imaging,Lunit,Medical Imaging,상장,한국,AI for conquering cancer,"AI 기반 암 진단, FDA 승인, Lancet 게재",High
+453,H. Vertical AI,H1. Healthcare & Life Science AI,Ambient Clinical,Abridge,Ambient Clinical,비상장,미국,AI-powered clinical documentation,"의료 기록 자동화, Forbes AI 50",High
+454,H. Vertical AI,H1. Healthcare & Life Science AI,Drug Discovery,Recursion Pharma,Drug Discovery,상장,미국,Decode biology to industrialize drug discovery,"AI 신약 발견, 주당 220만 실험, Exscientia 합병",High
+455,H. Vertical AI,H1. Healthcare & Life Science AI,Drug Discovery,Isomorphic Labs,Drug Discovery,비상장,영국,AlphaFold-based drug discovery,"DeepMind 스핀오프, $600M 유치, Eli Lilly $1.7B 계약",High
+456,H. Vertical AI,H1. Healthcare & Life Science AI,Drug Discovery,Insilico Medicine,Drug Discovery,비상장,홍콩,AI-powered drug discovery,최초 AI 발견 약물 Phase II 임상 입증,High
+457,H. Vertical AI,H1. Healthcare & Life Science AI,Precision Medicine,Tempus AI,Precision Medicine,상장,미국,AI for precision medicine,"정밀 의학 AI, $334M Q3 매출 (+85% YoY)",High
+458,H. Vertical AI,H1. Healthcare & Life Science AI,Digital Pathology,PathAI,Digital Pathology,비상장,미국,AI-powered pathology,"AI 병리학, FDA 승인 (2025.6), 전국 배포",High
+459,H. Vertical AI,H1. Healthcare & Life Science AI,Radiology AI,Aidoc,Radiology AI,비상장,미국/이스라엘,AI for radiologists,"20+ FDA 승인, 900+ 병원, 월 3M 환자",High
+460,H. Vertical AI,H1. Healthcare & Life Science AI,Clinical Triage,Viz.ai,Clinical Triage,비상장,미국,AI-powered clinical coordination,"최초 FDA AI 트리아지, 뇌졸중 치료 52% 단축",High
+461,H. Vertical AI,H1. Healthcare & Life Science AI,Protein Models,EvolutionaryScale,Protein Models,비상장,미국,Foundation models for biology,"ESM3 단백질 모델, 5억년 진화 시뮬레이션, $142M",High
+462,H. Vertical AI,H1. Healthcare & Life Science AI,Nurse Agent,Hippocratic AI,Nurse Agent,비상장,미국,The safest AI for healthcare,의료 특화 비진단 자율 간호사 에이전트,Medium
+463,H. Vertical AI,H1. Healthcare & Life Science AI,Clinical Search,OpenEvidence,Clinical Search,비상장,미국,Evidence-based clinical AI,의사 전용 임상 가이드라인 및 지식 검색,Medium
+464,H. Vertical AI,H1. Healthcare & Life Science AI,Biologics AI,Absci,Biologics AI,상장,미국,Zero-shot antibody design with AI,"제로샷 항체 AI, AstraZeneca $247M 계약",Medium
+465,H. Vertical AI,H1. Healthcare & Life Science AI,Comp Chemistry,Schrodinger,Comp Chemistry,상장,미국,Transforming the way therapeutics are discovered,Zasocitinib Phase III 진행 중,Medium
+466,H. Vertical AI,H1. Healthcare & Life Science AI,Doc AI,Upstage,Doc AI,비상장,한국,Enterprise AI with document intelligence,기업용 Solar LLM 및 지능형 문서 처리,Medium
+467,H. Vertical AI,H2. Legal AI,General Legal,Harvey AI,General Legal,비상장,미국,AI for professional services,"법률 AI 1위, $195M ARR, $11B 기업가치, 100K+ 변호사",High
+468,H. Vertical AI,H2. Legal AI,Contract Mgmt,Ironclad,Contract Mgmt,비상장,미국,Digital contracting for modern business,"계약 관리, $3.2B 기업가치, L'Oreal/OpenAI 고객",High
+469,H. Vertical AI,H2. Legal AI,eDiscovery,Relativity,eDiscovery,비상장,미국,Organize data. Discover truth,"AmLaw 200 중 199개 사용, $3.6B 기업가치",High
+470,H. Vertical AI,H2. Legal AI,Contract AI,Luminance,Contract AI,비상장,영국,AI for legal professionals,"MoE 아키텍처, Forbes AI 50",High
+471,H. Vertical AI,H2. Legal AI,Legal Research,CoCounsel (TR),Legal Research,인수,미국,AI legal research assistant,"최초 AI 법률 어시스턴트, Westlaw 통합",High
+472,H. Vertical AI,H2. Legal AI,PI Law,EvenUp,PI Law,비상장,미국,AI for personal injury,"PI 특화 AI, Piai 자체 모델",Medium
+473,H. Vertical AI,H2. Legal AI,Litigation,Everlaw,Litigation,비상장,미국,Cloud-native litigation platform,"클라우드 소송 플랫폼, $200M+ 유치",Medium
+474,H. Vertical AI,H3. Financial Services AI,Fraud Detection,Feedzai,Fraud Detection,비상장,포르투갈/미국,Fighting financial crime with AI,"Fortune 500 80%, 북미 5대 은행 중 4개",High
+475,H. Vertical AI,H3. Financial Services AI,Market Intel,AlphaSense,Market Intel,비상장,미국,The leading AI market intelligence platform,"투자은행 80%, S&P 100 88% 사용",High
+476,H. Vertical AI,H3. Financial Services AI,AI Lending,Upstart,AI Lending,상장,미국,AI lending marketplace,"1,500+ 데이터 포인트, 90% 자동 승인",High
+477,H. Vertical AI,H3. Financial Services AI,Insurance AI,Lemonade,Insurance AI,상장,미국,AI-native insurance,"AI 네이티브 보험, $1.16B IFP (+30% YoY)",Medium
+478,H. Vertical AI,H3. Financial Services AI,Financial Agent,Rogo,Financial Agent,비상장,미국,AI agents for investment banking,"딜팀용 자율 에이전트, $75M Series C",Medium
+479,H. Vertical AI,H3. Financial Services AI,Credit Scoring,Zest AI,Credit Scoring,비상장,미국,Fair and transparent AI lending,"20-30% 더 많은 승인, 편향 감소",Medium
+480,H. Vertical AI,H3. Financial Services AI,Claims AI,Tractable,Claims AI,비상장,영국,AI for accident and disaster recovery,차량/재산 피해 CV 평가,Medium
+481,H. Vertical AI,H3. Financial Services AI,AML/Compliance,ComplyAdvantage,AML/Compliance,비상장,영국,AI for financial crime detection,AML/제재 AI 사기 탐지,Medium
+482,H. Vertical AI,H4. Defense & Government AI,Autonomous Systems,Anduril Industries,Autonomous Systems,비상장,미국,Transforming defense capabilities,"Lattice OS, 자율 시스템, $30.5B 기업가치",High
+483,H. Vertical AI,H4. Defense & Government AI,Autonomous Drones,Shield AI,Autonomous Drones,비상장,미국,AI pilot for defense,"Hivemind AI 파일럿, $12.7B 기업가치, $2B 유치",High
+484,H. Vertical AI,H4. Defense & Government AI,Autonomous Naval,Saronic,Autonomous Naval,비상장,미국,Autonomous surface vessels for defense,"자율 수상 함정, $9.25B 기업가치, $1.75B 유치",High
+485,H. Vertical AI,H4. Defense & Government AI,Defense Analytics,Palantir,Defense Analytics,상장,미국,Build the world's best software,Foundry/AIP 국방/정보 AI 분석 리더,High
+486,H. Vertical AI,H4. Defense & Government AI,European Defense,Helsing,European Defense,비상장,독일,AI for European defense,"전장 정보 실시간 분석, 유럽 방어 AI, EUR 12B",High
+487,H. Vertical AI,H4. Defense & Government AI,Autonomous Drones,Skydio,Autonomous Drones,비상장,미국,Autonomous drones made in America,"미국산 자율 드론, $1.2B 수주잔고",High
+488,H. Vertical AI,H4. Defense & Government AI,Intelligence AI,Vannevar Labs,Intelligence AI,비상장,미국,AI for national security,"국가 안보 AI, Forbes AI 50",Medium
+489,H. Vertical AI,H4. Defense & Government AI,Edge/Defense,Nota AI,Edge/Defense,비상장,한국,Edge AI model optimization,"엣지 AI 모델 최적화, 지능형 교통 시스템",Medium
+490,H. Vertical AI,H5. Supply Chain & Logistics AI,Supply Chain Plan,Blue Yonder,Supply Chain Plan,비상장,미국,Fulfill your potential,"AI Orchestrator, E2E 공급망, Panasonic 계열",High
+491,H. Vertical AI,H5. Supply Chain & Logistics AI,Integrated Plan,o9 Solutions,Integrated Plan,비상장,미국,AI-powered planning and analytics,"Digital Brain, 계획+분석 통합",High
+492,H. Vertical AI,H5. Supply Chain & Logistics AI,Concurrent Plan,Kinaxis,Concurrent Plan,상장,캐나다,Powering agile supply chains,"Fortune 500 고객, 동시 계획 플랫폼",High
+493,H. Vertical AI,H5. Supply Chain & Logistics AI,SC Intelligence,Altana AI,SC Intelligence,비상장,미국,AI-mapped global supply network,ML 기반 글로벌 공급망 매핑,High
+494,H. Vertical AI,H5. Supply Chain & Logistics AI,SC Visibility,FourKites,SC Visibility,비상장,미국,Real-time predictive visibility,실시간 예측 추적,Medium
+495,H. Vertical AI,H5. Supply Chain & Logistics AI,Movement Intel,project44,Movement Intel,비상장,미국,Supply chain visibility platform,수십억 배송 데이터 포인트,Medium
+496,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Revenue AI,Gong,Revenue AI,비상장,미국,Unlock reality to guide revenue teams,"35억+ 대화 분석, 4,500+ 고객",High
+497,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",ABM/Intent,6sense,ABM/Intent,비상장,미국,Know everything. Do anything,수조 인텐트 신호 분석,High
+498,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Revenue Ops,Clari,Revenue Ops,비상장,미국,Revenue operations platform,98% 예측 정확도,High
+499,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Sales Intel,ZoomInfo,Sales Intel,상장,미국,Intelligence-powered GTM,"3억+ 컨택, Chorus.ai 보유",High
+500,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Sales Engage,Outreach,Sales Engage,비상장,미국,The sales execution platform,ML 최적화 멀티채널 아웃리치,High
+501,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Marketing AI,Persado,Marketing AI,비상장,미국,Motivation AI for marketing,감성 AI 카피로 평균 41% 전환율 향상,Medium
+502,H. Vertical AI,"H6. Marketing, Sales & AdTech AI",Data Enrichment,Clay,Data Enrichment,비상장,미국,Creative data enrichment for GTM,"75+ 데이터소스, AI 리서치 자동화",Medium
+503,H. Vertical AI,H7. HR & Talent AI,Talent Intelligence,Eightfold AI,Talent Intelligence,비상장,미국,AI for talent intelligence,16억+ 커리어 프로필 분석,High
+504,H. Vertical AI,H7. HR & Talent AI,Talent Experience,Phenom,Talent Experience,비상장,미국,AI-powered talent experience,"풀 라이프사이클, Workday/SAP 통합",High
+505,H. Vertical AI,H7. HR & Talent AI,Recruiting AI,Paradox AI,Recruiting AI,비상장,미국,Conversational recruiting AI,"Olivia AI, 100+ 언어, 대량 채용",High
+506,H. Vertical AI,H7. HR & Talent AI,Talent Marketplace,Gloat,Talent Marketplace,비상장,미국/이스라엘,AI talent marketplace,"AI 내부 이동성, Loomra 시맨틱 레이어",Medium
+507,H. Vertical AI,H7. HR & Talent AI,People Analytics,Visier AI,People Analytics,비상장,캐나다,People analytics with AI,"Vee AI 코파일럿, Bersin AI Trailblazer",Medium
+508,H. Vertical AI,H8. Climate & Sustainability AI,Carbon Management,Watershed,Carbon Management,비상장,미국,Enterprise climate platform,Walmart/Airbnb/Stripe/BlackRock 고객,High
+509,H. Vertical AI,H8. Climate & Sustainability AI,Carbon Accounting,Persefoni,Carbon Accounting,비상장,미국,AI-powered carbon accounting,"PersefoniAI LLM, 8,000+ 조직",High
+510,H. Vertical AI,H8. Climate & Sustainability AI,Weather Intel,Tomorrow.io,Weather Intel,비상장,미국,Weather intelligence for everyone,자체 위성+ML 기상 예측,High
+511,H. Vertical AI,H8. Climate & Sustainability AI,Carbon Verification,Pachama,Carbon Verification,비상장,미국,AI and satellite forest carbon monitoring,AI+위성 산림 탄소 모니터링,Medium
+512,H. Vertical AI,H8. Climate & Sustainability AI,Climate Risk,ClimateAI,Climate Risk,비상장,미국,Climate risk analytics,공급망/농업 기후 리스크 분석,Medium
+513,H. Vertical AI,H9. Education AI,Language Learning,Duolingo,Language Learning,상장,미국,Making learning fun and accessible,"100M+ MAU, GPT-4 기반 Duolingo Max",High
+514,H. Vertical AI,H9. Education AI,AI Tutoring,Khan Academy (Khanmigo),AI Tutoring,비영리,미국,Free world-class education for anyone,소크라틱 GPT-4 튜터링,High
+515,H. Vertical AI,H9. Education AI,Academic Integrity,Turnitin AI,Academic Integrity,비상장,미국,Academic integrity for global education,"AI 작성 탐지, 16,000+ 교육기관",High
+516,H. Vertical AI,H9. Education AI,Language AI,Speak,Language AI,비상장,미국/한국,The best way to learn a language,"생성형 AI 기반 언어 학습, Forbes AI 50",Medium
+517,H. Vertical AI,H9. Education AI,Language AI,ELSA Speak,Language AI,비상장,미국,AI pronunciation coach,"발음 AI, 50M+ 사용자",Medium
+518,H. Vertical AI,H10. Autonomous Vehicles,Robotaxi,Waymo,Robotaxi,비상장,미국,Making it safe and easy for everyone to get around,"L4 자율주행 리더, 주당 450K+ 유료 탑승",High
+519,H. Vertical AI,H10. Autonomous Vehicles,AV Trucking,Aurora Innovation,AV Trucking,상장,미국,Delivering the benefits of self-driving technology,"자율 상용 트럭, 100K+ 무사고 무인주행 마일",High
+520,H. Vertical AI,H10. Autonomous Vehicles,End-to-End AV,Wayve,End-to-End AV,비상장,영국,AI-first autonomous driving,"E2E AI 자율주행, SoftBank $1B+ 투자",High
+521,H. Vertical AI,H10. Autonomous Vehicles,ADAS/AV,Mobileye,ADAS/AV,상장,이스라엘,Driving the future of mobility,ADAS/AV 소프트웨어 선두,High
+522,H. Vertical AI,H10. Autonomous Vehicles,Robotaxi,Zoox,Robotaxi,비상장,미국,Purpose-built autonomous vehicles,Amazon 계열 자율주행,Medium
+523,H. Vertical AI,H10. Autonomous Vehicles,Robotaxi,Pony.ai,Robotaxi,상장,중국,Building the safest autonomous mobility,"로보택시/트럭, NYSE 상장",High
+524,H. Vertical AI,H10. Autonomous Vehicles,Autonomous Freight,Einride,Autonomous Freight,비상장,스웨덴,Intelligent movement of goods,자율 전기 화물 운송,Medium
+525,H. Vertical AI,H10. Autonomous Vehicles,FSD,Tesla (FSD),FSD,상장,미국,Accelerating sustainable transport,Full Self-Driving AI 기반 자율주행 기능,High
+526,H. Vertical AI,H11. Agriculture & Geospatial AI,Precision Farm,John Deere (See & Spray),Precision Farm,상장,미국,Technology for life's biggest leaps,"CV 기반 정밀 농업, 제초제 77% 절감",High
+527,H. Vertical AI,H11. Agriculture & Geospatial AI,Satellite AI,Planet Labs,Satellite AI,상장,미국,Using space to help life on Earth,지구관측 위성+AI 분석,High
+528,H. Vertical AI,H11. Agriculture & Geospatial AI,Geospatial Intel,BlackSky,Geospatial Intel,상장,미국,Real-time geospatial intelligence,실시간 지리공간 정보 및 모니터링,Medium
+529,H. Vertical AI,H11. Agriculture & Geospatial AI,Ag Data,Gro Intelligence,Ag Data,비상장,미국,Global food system analytics,농업/금융 예측 분석,Medium
+530,H. Vertical AI,H11. Agriculture & Geospatial AI,Precision Ag,Taranis,Precision Ag,비상장,이스라엘/미국,AI-powered crop intelligence,초고해상도 항공 AI 작물 분석,Medium
+531,I. Security & Governance,I1. AI Security & Safety,Cloud Security,Wiz,Cloud Security,비상장,미국,Securing everything you build and run in the cloud,"Google 인수 추진, 클라우드 보안 리더",High
+532,I. Security & Governance,I1. AI Security & Safety,Endpoint,CrowdStrike,Endpoint,상장,미국,We stop breaches,Charlotte AI 에이전틱 보안 플랫폼 선두,High
+533,I. Security & Governance,I1. AI Security & Safety,Network,Palo Alto Networks,Network,상장,미국,Securing the digital future,Prisma Cloud 인프라 보안 최강자,High
+534,I. Security & Governance,I1. AI Security & Safety,Zero Trust,Zscaler,Zero Trust,상장,미국,Securing digital transformation,AI 기반 제로 트러스트 네트워크 보안,High
+535,I. Security & Governance,I1. AI Security & Safety,Endpoint,SentinelOne,Endpoint,상장,미국,Autonomous cybersecurity platform,Purple AI 자율형 엔드포인트 보안,High
+536,I. Security & Governance,I1. AI Security & Safety,AI Agent Sec,Noma Security,AI Agent Sec,비상장,이스라엘,AI agent threat detection,AI 에이전트 전용 위협 탐지 방어,Medium
+537,I. Security & Governance,I1. AI Security & Safety,ML Security,Protect AI,ML Security,인수(PANW),미국,AI/ML security lifecycle,Palo Alto Networks ~$700M 인수,High
+538,I. Security & Governance,I1. AI Security & Safety,AI Security,Robust Intelligence,AI Security,인수(Cisco),미국,AI security and red teaming,"Cisco AI Defense로 통합, ~$400M",High
+539,I. Security & Governance,I1. AI Security & Safety,Prompt Protection,Lakera AI,Prompt Protection,인수(Check Point),스위스,Protecting AI applications,Check Point ~$300M 인수,High
+540,I. Security & Governance,I1. AI Security & Safety,FHE Security,Zama,FHE Security,비상장,프랑스,Fully homomorphic encryption for AI,동형 암호 기반 보안 AI 연산,Medium
+541,I. Security & Governance,I1. AI Security & Safety,ML Model Sec,HiddenLayer,ML Model Sec,비상장,미국,ML model attack defense,ML 모델 공격 방어/보안 모니터링,Medium
+542,I. Security & Governance,I1. AI Security & Safety,Agent Security,Zenity,Agent Security,비상장,이스라엘,AI agent security platform,AI 에이전트 보안 선구자,Medium
+543,I. Security & Governance,I1. AI Security & Safety,Auto Security,Darktrace,Auto Security,상장,영국,Self-learning cyber defense,자율 학습 기반 실시간 사이버 방어,Medium
+544,I. Security & Governance,I1. AI Security & Safety,Network Sec,Fortinet,Network Sec,상장,미국,Powering and securing the AI-driven enterprise,AI 기반 보안 패브릭 및 방화벽,High
+545,I. Security & Governance,I1. AI Security & Safety,Cloud Security,Orca Security,Cloud Security,비상장,이스라엘,Agentless cloud security,에이전트리스 클라우드 보안,Medium
+546,I. Security & Governance,I1. AI Security & Safety,Data Security,Cyera,Data Security,비상장,미국/이스라엘,AI data security posture management,AI DSPM 리더,Medium
+547,I. Security & Governance,I1. AI Security & Safety,Email Security,Abnormal Security,Email Security,비상장,미국,AI-powered email security,행동 분석 이메일 보안,Medium
+548,I. Security & Governance,I1. AI Security & Safety,Asset Security,Armis,Asset Security,비상장,미국,Asset intelligence for cybersecurity,AI 자산 탐지/취약점 진단,Medium
+549,I. Security & Governance,I1. AI Security & Safety,vCISO,Cynomi,vCISO,비상장,이스라엘,AI-powered virtual CISO,AI 자동 vCISO 플랫폼,Low
+550,I. Security & Governance,I1. AI Security & Safety,IAM,Descope,IAM,비상장,미국/이스라엘,Identity for AI agents,AI 에이전트 전용 신원 관리(IAM),Low
+551,I. Security & Governance,I2. AI Governance & Compliance,AI Governance,Credo AI,AI Governance,비상장,미국,Responsible AI governance platform,"AI 리스크 모니터링, Gartner Cool Vendor 2025",High
+552,I. Security & Governance,I2. AI Governance & Compliance,Compliance,OneTrust,Compliance,비상장,미국,Trust intelligence platform,데이터 프라이버시 및 AI 준거성 관리 1위,High
+553,I. Security & Governance,I2. AI Governance & Compliance,Data Governance,Collibra,Data Governance,비상장,벨기에,Data intelligence for every organization,전사적 데이터 거버넌스 및 품질 관리 리더,High
+554,I. Security & Governance,I2. AI Governance & Compliance,AI Monitoring,Fiddler AI,AI Monitoring,비상장,미국,AI Control Plane for enterprise agents,"모델 설명 가능성/성능/편향 추적, CB Insights AI 100",Medium
+555,I. Security & Governance,I2. AI Governance & Compliance,AI Monitoring,Arthur AI,AI Monitoring,비상장,미국,AI monitoring and governance,"편향/할루시네이션 모니터링, $60M+ 유치",Medium
+556,I. Security & Governance,I2. AI Governance & Compliance,AI Governance,Holistic AI,AI Governance,비상장,영국,AI risk audit and compliance,AI 리스크 감사 및 규정 준수,Medium
+557,I. Security & Governance,I2. AI Governance & Compliance,AI Governance,Trail,AI Governance,비상장,독일,AI development audit trails,AI 개발 감사 추적 및 자동화 문서 생성,Low
+558,I. Security & Governance,I2. AI Governance & Compliance,AI Governance,FairNow,AI Governance,비상장,미국,AI bias diagnosis and risk management,AI 편향성 진단 및 리스크 관리 자동화,Low
+559,I. Security & Governance,I2. AI Governance & Compliance,AI Governance,VerifyWise,AI Governance,비상장,미국,Open-source responsible AI,오픈소스 기반 책임 있는 AI 개발 플랫폼,Low
+560,I. Security & Governance,I2. AI Governance & Compliance,ML Infra,Reliabl AI,ML Infra,비상장,미국,Production ML infrastructure,비즈니스용 고품질 ML 모델 빌드 인프라,Low
+561,I. Security & Governance,I3. AI Observability & AIOps,Full-Stack,Datadog,Full-Stack,상장,미국,Modern monitoring and analytics,"LLM Observability, AI-SPM, $2.7B+ 매출",High
+562,I. Security & Governance,I3. AI Observability & AIOps,AIOps,Dynatrace,AIOps,상장,미국,Software intelligence for the enterprise,"Davis AI 엔진, Forrester Leader AIOps Q2 2025",High
+563,I. Security & Governance,I3. AI Observability & AIOps,Observability,Grafana Labs,Observability,비상장,미국,Open and composable observability,"GenAI/LLM/벡터DB/GPU 옵저버빌리티, $6B",High
+564,I. Security & Governance,I3. AI Observability & AIOps,ML Observability,Arize AI,ML Observability,비상장,미국,AI observability platform,"선도 AI 옵저버빌리티, Phoenix OSS, $131M 유치",High
+565,I. Security & Governance,I3. AI Observability & AIOps,Data+AI Obs,Monte Carlo Data,Data+AI Obs,비상장,미국,Data reliability for AI,"데이터+AI 옵저버빌리티, $236M+ 유치",High
+566,I. Security & Governance,I3. AI Observability & AIOps,AIOps,BigPanda,AIOps,비상장,미국,AIOps event correlation,"알람 95%+ 감소, $1.2B 기업가치",Medium
+567,I. Security & Governance,I3. AI Observability & AIOps,AI Obs/Security,WhyLabs,AI Obs/Security,비상장,미국,Privacy-preserving AI observability,"프라이버시 우선, 프롬프트 인젝션 탐지 <300ms",Medium
+568,I. Security & Governance,I3. AI Observability & AIOps,ML Monitoring,Evidently AI,ML Monitoring,비상장,영국/미국,Open-source ML monitoring,오픈소스 드리프트/품질 모니터링,Medium
+569,I. Security & Governance,I3. AI Observability & AIOps,ML Monitoring,Aporia,ML Monitoring,비상장,이스라엘,ML monitoring and guardrails,"드리프트 탐지 및 GenAI 가드레일, $25M+ 유치",Medium
+570,I. Security & Governance,I3. AI Observability & AIOps,DCIM,Sunbird,DCIM,비상장,미국,Real-time DC monitoring,실시간 DC 모니터링 및 자원 최적화 SW,Medium
+571,I. Security & Governance,I3. AI Observability & AIOps,DCIM,Nlyte Software,DCIM,비상장,미국,Hybrid cloud infrastructure management,하이브리드 클라우드 인프라 자동화 관리,Low
+572,I. Security & Governance,I4. Edge AI Infrastructure,Edge AI Infra,Cloudflare Workers AI,Edge AI Infra,상장,미국,Help build a better Internet,"330+ DC에서 서버리스 AI 추론, Q3 2025 4,000% 성장",High
+573,I. Security & Governance,I4. Edge AI Infrastructure,Edge AI Opt,Nota AI,Edge AI Opt,비상장,한국,Edge AI model optimization,"모델 90% 축소, CB Insights AI 100",Medium
+574,I. Security & Governance,I4. Edge AI Infrastructure,Edge AI Opt,Latent AI,Edge AI Opt,비상장,미국,AI optimization for edge devices,리소스 제한 엣지용 AI 모델 최적화,Low
+575,I. Security & Governance,I4. Edge AI Infrastructure,Edge SoC,SiMa.ai,Edge SoC,비상장,미국,Edge ML system-on-chip,"50+ TOPS at sub-5W, 임베디드 비전",Medium
+576,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,Figure AI,Humanoid,비상장,미국,Building the world's first commercially viable humanoid,"Figure 02 범용 휴머노이드, OpenAI 협력",High
+577,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Robotics,Boston Dynamics,Robotics,비상장,미국,Changing your idea of what robots can do,"Atlas/Spot 로봇, 현대자동차 계열",High
+578,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,Tesla (Optimus),Humanoid,상장,미국,Accelerating the advent of robotics,Optimus 휴머노이드 로봇 자체 개발,High
+579,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,Agility Robotics,Humanoid,비상장,미국,Building a future with humanoid robots,"Digit 로봇, 물류/창고 자동화",High
+580,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Robot AI,Physical Intelligence,Robot AI,비상장,미국,Foundation models for robotics,로봇 파운데이션 모델 pi0 개발,High
+581,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Robot Foundation,Skild AI,Robot Foundation,비상장,미국,General-purpose robot foundation model,범용 로봇 파운데이션 모델 개발,High
+582,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,1X Technologies,Humanoid,비상장,노르웨이,Creating androids for everyone,"NEO 휴머노이드, OpenAI 투자",High
+583,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,Apptronik,Humanoid,비상장,미국,General-purpose humanoid robots,"Apollo 로봇, NASA/Mercedes 협력",Medium
+584,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Humanoid,Sanctuary AI,Humanoid,비상장,캐나다,Creating general-purpose robots,"Phoenix 로봇, 범용 AI 제어 시스템",Medium
+585,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Warehouse Robot,Symbotic,Warehouse Robot,상장,미국,AI-powered warehouse automation,AI 기반 창고 자동화 로봇 시스템,High
+586,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Cobot,Rainbow Robotics,Cobot,상장,한국,Robotics for everyone,"삼성전자 투자, 협동 로봇 및 휴머노이드",Medium
+587,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Industrial Robot,Fanuc,Industrial Robot,상장,일본,Factory automation worldwide,산업용 로봇 및 CNC 글로벌 1위,High
+588,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Industrial Robot,ABB Robotics,Industrial Robot,상장,스위스,Leading in electrification and automation,산업용 로봇 및 자동화 솔루션 리더,High
+589,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Surgical Robot,Intuitive Surgical,Surgical Robot,상장,미국,Advancing what's possible in healthcare,"da Vinci 수술 로봇 독보적 1위, AI 통합 확대",High
+590,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Delivery Robot,Nuro,Delivery Robot,비상장,미국,Autonomous delivery vehicles,자율주행 무인 배송 로봇 선두,Medium
+591,J. Robotics & Embodied AI,J1. Robotics & Embodied AI,Service Robot,Bear Robotics,Service Robot,비상장,미국/한국,Hospitality service robots,외식업 서비스 로봇 Servi 시리즈,Low
