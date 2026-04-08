@@ -21,6 +21,11 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 app = FastAPI(title="AI Eco Monitor API")
 
+# Health Check for Railway/Cloud
+@app.get("/")
+def health_check():
+    return {"status": "healthy", "service": "AI Eco Monitor Backend"}
+
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
