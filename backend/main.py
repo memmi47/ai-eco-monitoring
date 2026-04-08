@@ -16,37 +16,51 @@ except ImportError:
 
 load_dotenv()
 
+# Define Base Directory for absolute pathing
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 app = FastAPI(title="AI Eco Monitor API")
 
 # Enable CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # In production, you might want to restrict this to your Vercel URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# Point to SQLite db file
-db_url = os.environ.get("DATABASE_URL", "../database/ai_eco_monitor.db")
+# Use absolute path for SQLite db file
+DEFAULT_DB_PATH = os.path.join(BASE_DIR, "database", "ai_eco_monitor.db")
+db_url = os.environ.get("DATABASE_URL", DEFAULT_DB_PATH)
+
+# Add database directory to path to import seed_db
+sys.path.append(os.path.join(BASE_DIR, 'database'))
+try:
+    import seed_db
+except ImportError:
+    seed_db = None
 
 # Simple check/seed on startup
 @app.on_event("startup")
 def startup_event():
     # Ensure folder exists
-    os.makedirs(os.path.dirname(db_url) if os.path.dirname(db_url) else '.', exist_ok=True)
+    db_dir = os.path.dirname(db_url)
+    if db_dir and not os.path.exists(db_dir):
+        os.makedirs(db_dir, exist_ok=True)
     
     conn = sqlite3.connect(db_url)
     cursor = conn.cursor()
+    # Check if DB is initialized
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
     table_exists = cursor.fetchone()
     
     if not table_exists:
-        print("Database tables not found. Initializing...")
+        print(f"Database tables not found. Initializing at {db_url}...")
         if seed_db:
             seed_db.main()
         else:
-            print("Warning: seed_db.py not found, could not initialize database.")
+            print("Warning: seed_db.py not found.")
     else:
         cursor.execute("SELECT COUNT(*) FROM companies")
         count = cursor.fetchone()[0]

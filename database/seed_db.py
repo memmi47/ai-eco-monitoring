@@ -2,7 +2,9 @@ import pandas as pd
 import sqlite3
 import os
 
-db_url = os.environ.get("DATABASE_URL", "ai_eco_monitor.db")
+# Define Base Directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+db_url = os.environ.get("DATABASE_URL", os.path.join(BASE_DIR, "database", "ai_eco_monitor.db"))
 
 def map_tier(importance):
     if not isinstance(importance, str):
@@ -19,15 +21,19 @@ def map_tier(importance):
 def main():
     try:
         print(f"Connecting to SQLite database: {db_url}...")
+        # Ensure directory exists
+        os.makedirs(os.path.dirname(db_url), exist_ok=True)
+        
         conn = sqlite3.connect(db_url)
         cur = conn.cursor()
         
         print("Creating schema...")
-        with open('schema.sql', 'r') as f:
+        schema_path = os.path.join(BASE_DIR, "database", "schema.sql")
+        with open(schema_path, 'r') as f:
             cur.executescript(f.read())
             
         print("Loading CSV...")
-        csv_path = '../AI_Factory_Ecosystem_Database_v2.csv'
+        csv_path = os.path.join(BASE_DIR, 'AI_Factory_Ecosystem_Database_v2.csv')
         df = pd.read_csv(csv_path)
 
         inserted_count = 0
