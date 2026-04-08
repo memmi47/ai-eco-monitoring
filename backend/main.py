@@ -1,15 +1,60 @@
 import os
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import sqlite3
 import litellm
+import sys
+
+# Add database directory to path to import seed_db
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'database'))
+try:
+    import seed_db
+except ImportError:
+    seed_db = None
 
 load_dotenv()
 
 app = FastAPI(title="AI Eco Monitor API")
-# Point to SQLite db file in database dir
+
+# Enable CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # In production, you might want to restrict this to your Vercel URL
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Point to SQLite db file
 db_url = os.environ.get("DATABASE_URL", "../database/ai_eco_monitor.db")
+
+# Simple check/seed on startup
+@app.on_event("startup")
+def startup_event():
+    # Ensure folder exists
+    os.makedirs(os.path.dirname(db_url) if os.path.dirname(db_url) else '.', exist_ok=True)
+    
+    conn = sqlite3.connect(db_url)
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
+    table_exists = cursor.fetchone()
+    
+    if not table_exists:
+        print("Database tables not found. Initializing...")
+        if seed_db:
+            seed_db.main()
+        else:
+            print("Warning: seed_db.py not found, could not initialize database.")
+    else:
+        cursor.execute("SELECT COUNT(*) FROM companies")
+        count = cursor.fetchone()[0]
+        if count == 0:
+            print("Database is empty. Seeding...")
+            if seed_db:
+                seed_db.main()
+    conn.close()
 
 MODEL_FREE = "openrouter/google/gemma-2-9b-it:free"
 MODEL_PAID = "openrouter/google/gemini-flash-1.5"
@@ -77,7 +122,18 @@ def get_activity():
 
 @app.get("/api/taxonomy")
 def get_taxonomy():
-    return {"layers": [], "categories": []}
+    conn = sqlite3.connect(db_url)
+    conn.row_factory = dict_factory
+    cursor = conn.cursor()
+    
+    cursor.execute("SELECT DISTINCT layer FROM companies ORDER BY layer")
+    layers = [row['layer'] for row in cursor.fetchall()]
+    
+    cursor.execute("SELECT DISTINCT category FROM companies ORDER BY category")
+    categories = [row['category'] for row in cursor.fetchall()]
+    
+    conn.close()
+    return {"layers": layers, "categories": categories}
 
 class AnalyzeRequest(BaseModel):
     news_content: str
