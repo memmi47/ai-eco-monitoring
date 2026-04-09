@@ -1,32 +1,58 @@
 import os
+import sys
+import json
+import sqlite3
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
-import sqlite3
 import litellm
-import sys
 
-# Add database directory to path to import seed_db
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'database'))
+load_dotenv()
+
+# ============================================================
+# PATH & CONFIG
+# ============================================================
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(BASE_DIR)
+sys.path.append(os.path.join(BASE_DIR, 'database'))
+
 try:
     import seed_db
 except ImportError:
     seed_db = None
 
-load_dotenv()
+try:
+    from variable_definitions import (
+        VARIABLE_DEFINITIONS, TIER_CONTEXTS,
+        _get_tier, extract_category_key,
+        VARIABLE_DRIVER_MAP, DRIVER_NAMES, DIVERGENCE_ALERT_RULES
+    )
+except ImportError:
+    VARIABLE_DEFINITIONS = {}
+    TIER_CONTEXTS = {}
+    VARIABLE_DRIVER_MAP = {}
+    DRIVER_NAMES = {}
+    DIVERGENCE_ALERT_RULES = []
+    def _get_tier(layer): return "tier3"
+    def extract_category_key(cat): return "XX"
 
-# Base directory is now the backend folder itself
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DEFAULT_DB_PATH = os.path.join(BASE_DIR, "database", "ai_eco_monitor.db")
+db_url = os.environ.get("DATABASE_URL", DEFAULT_DB_PATH)
+MODEL_FREE = "openrouter/google/gemma-2-9b-it:free"
+MODEL_PAID = "openrouter/google/gemini-flash-1.5"
 
-app = FastAPI(title="AI Eco Monitor API")
+# ============================================================
+# FASTAPI APP
+# ============================================================
 
-# Health Check for Railway/Cloud
+app = FastAPI(title="AI Eco Monitor API v2")
+
 @app.get("/")
 def health_check():
-    return {"status": "healthy", "service": "AI Eco Monitor Backend"}
+    return {"status": "healthy", "service": "AI Eco Monitor Backend", "version": "2.0"}
 
-# Enable CORS
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -35,38 +61,23 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# SQLite DB is now in backend/database/
-DEFAULT_DB_PATH = os.path.join(BASE_DIR, "database", "ai_eco_monitor.db")
-db_url = os.environ.get("DATABASE_URL", DEFAULT_DB_PATH)
+# ============================================================
+# STARTUP
+# ============================================================
 
-# Import seed_db from the local database folder
-import sys
-sys.path.append(os.path.join(BASE_DIR, 'database'))
-try:
-    import seed_db
-except ImportError:
-    seed_db = None
-
-# Startup check
 @app.on_event("startup")
 def startup_event():
+    if db_url.startswith("postgresql"):
+        print(f"Connecting to external PostgreSQL: {db_url}")
+        return
     db_dir = os.path.dirname(db_url)
     if db_dir and not os.path.exists(db_dir):
         os.makedirs(db_dir, exist_ok=True)
-    
     conn = sqlite3.connect(db_url)
     cursor = conn.cursor()
-    # If the provided DATABASE_URL is postgres, we skip the sqlite check/seed
-    if db_url.startswith("postgresql"):
-        print(f"Connecting to external PostgreSQL: {db_url}")
-        conn.close()
-        return
-
     cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
-    table_exists = cursor.fetchone()
-    
-    if not table_exists:
-        print(f"Initializing SQLite database at {db_url}...")
+    if not cursor.fetchone():
+        print("Initializing DB...")
         if seed_db:
             seed_db.main()
     else:
@@ -76,32 +87,161 @@ def startup_event():
                 seed_db.main()
     conn.close()
 
-MODEL_FREE = "openrouter/google/gemma-2-9b-it:free"
-MODEL_PAID = "openrouter/google/gemini-flash-1.5"
+# ============================================================
+# DB HELPER
+# ============================================================
 
 def dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
+    return {col[0]: row[idx] for idx, col in enumerate(cursor.description)}
 
-# GET /api/companies
+def get_conn():
+    conn = sqlite3.connect(db_url)
+    conn.row_factory = dict_factory
+    return conn
+
+# ============================================================
+# PROMPTS v2
+# ============================================================
+
+STAGE1_SYSTEM = """You are a structured fact extractor for the AI and semiconductor industry.
+
+Your task:
+1. Extract structured facts from the news article
+2. Determine if this news has ANY relevance to AI infrastructure, AI models, AI applications, or the semiconductor supply chain
+3. Identify which company and industry category this relates to
+
+IMPORTANT: Be inclusive. Even indirect relevance should pass. Only filter out completely unrelated news (sports, entertainment, unrelated politics).
+
+Respond in JSON only. No markdown, no explanation.
+
+{
+  "relevant": true/false,
+  "facts": {
+    "who": "company or entity name",
+    "what": "action or event (be specific)",
+    "how": "quantitative detail if available (numbers, percentages, dollar amounts)",
+    "when": "date or time context",
+    "source_type": "earnings|press_release|news|blog|sec_filing|research|rumor"
+  },
+  "company_match": {
+    "company_name": "matched company or null",
+    "category": "best matching Category (e.g. C2.Hyperscaler, B5.Server)",
+    "tier": "tier1|tier2|tier3"
+  },
+  "is_quantitative": true/false
+}"""
+
+STAGE2_SYSTEM = """You are a memory semiconductor demand signal analyst.
+
+Given the extracted facts from a news article, your task is:
+1. Map this event to the most relevant measurement variable for this category
+2. Determine the signal direction (ONLY bullish or bearish — never structural)
+3. Add a caveat field if the direction has important counterarguments
+4. Identify which memory products are affected (HBM / Conv. DRAM / NAND)
+
+CATEGORY: {category}
+TIER: {tier}
+
+MEASUREMENT VARIABLES FOR THIS CATEGORY:
+{variable_definitions}
+
+SIGNAL RULES:
+- Direction: ONLY "bullish" (memory demand increases) or "bearish" (demand decreases)
+- If previously classified as "structural", choose the primary direction and add caveat
+- Strength: "strong" (official disclosure, quantitative), "moderate" (credible report), "weak" (rumor)
+- Confidence: "high" (company filing/official), "medium" (credible media), "low" (rumor/estimation)
+- Affected memory: subset of ["HBM", "Conv. DRAM", "NAND"]
+- needs_review: true if direction is genuinely ambiguous and requires human analyst review
+
+Respond in JSON only. No markdown, no explanation.
+
+{{
+  "variable_id": "the variable ID (e.g. V26)",
+  "variable_name": "human-readable variable name",
+  "direction": "bullish|bearish",
+  "caveat": "null or one sentence counterargument",
+  "needs_review": false,
+  "strength": "strong|moderate|weak",
+  "confidence": "high|medium|low",
+  "affected_memory": ["HBM", "Conv. DRAM"],
+  "reasoning": "one sentence: why this direction and strength"
+}}"""
+
+STAGE3_SYSTEM = """You are a senior memory semiconductor demand strategist at a major memory company.
+
+Given the structured facts and signal classification from previous stages, provide:
+1. The specific transmission path from this event to memory semiconductor demand (A → B → C chain)
+2. The demand impact on each memory product (HBM, Conv. DRAM, NAND)
+3. The time lag before demand impact materializes
+4. A concise executive summary in Korean (2-3 sentences)
+
+CONTEXT:
+- Memory demand = Tier1 (infra volume) × Tier2 (per-unit memory coefficient) × Tier3 (utilization rate)
+- For efficiency events: compare efficiency speed vs adoption speed
+  * If adoption speed > efficiency speed → bullish (total demand still grows)
+  * If efficiency speed > adoption speed → bearish (add caveat: "채택 가속 시 반전 가능")
+  * If unclear → bullish with caveat "효율화 영향 모니터링 필요"
+- Do NOT say "Jevons Paradox" blindly — apply the speed comparison frame above
+
+TIER CONTEXT:
+{tier_context}
+
+Respond in JSON only. No markdown, no explanation.
+
+{{
+  "transmission_path": "Specific A→B→C chain. Example: 'MS capex +19% → GPU server orders increase → HBM demand +15-20% in 6-9M'",
+  "memory_impact": {{
+    "HBM": {{"direction": "bullish|bearish|neutral", "magnitude": "high|medium|low|none", "detail": "specific impact"}},
+    "Conv_DRAM": {{"direction": "...", "magnitude": "...", "detail": "..."}},
+    "NAND": {{"direction": "...", "magnitude": "...", "detail": "..."}}
+  }},
+  "time_lag": "immediate|short_3-6m|mid_6-12m|long_12m+",
+  "demand_formula_tier": "tier1|tier2|tier3",
+  "demand_formula_role": "Which part of the formula: volume (tier1), per-unit coefficient (tier2), or utilization rate (tier3)",
+  "decision_relevance": "current_quarter|next_quarter|investment_plan|strategic_reference",
+  "counterargument": "What could make this signal wrong? One sentence.",
+  "executive_summary": "2-3 sentences in Korean for C-level. State event, memory demand impact, confidence level."
+}}"""
+
+# ============================================================
+# LLM HELPER
+# ============================================================
+
+def _call_llm(model: str, system_prompt: str, user_content: str) -> dict:
+    """LLM 호출 + JSON 파싱. 실패 시 에러 dict 반환."""
+    try:
+        response = litellm.completion(
+            model=model,
+            messages=[
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_content}
+            ]
+        )
+        raw = response.choices[0].message.content.strip()
+        # JSON 블록 추출
+        if "```" in raw:
+            raw = raw.split("```")[1]
+            if raw.startswith("json"):
+                raw = raw[4:]
+        return json.loads(raw)
+    except Exception as e:
+        return {"_error": str(e)}
+
+# ============================================================
+# EXISTING v1 ENDPOINTS (하위 호환)
+# ============================================================
+
 @app.get("/api/companies")
 def get_companies(layer: str = None, tier: str = None, q: str = None):
     query = "SELECT * FROM companies WHERE 1=1"
     params = []
     if layer:
-        query += " AND layer = ?"
-        params.append(layer)
+        query += " AND layer = ?"; params.append(layer)
     if tier:
-        query += " AND tier = ?"
-        params.append(tier)
+        query += " AND tier = ?"; params.append(tier)
     if q:
-        query += " AND company_name LIKE ?"
-        params.append(f"%{q}%")
-        
-    conn = sqlite3.connect(db_url)
-    conn.row_factory = dict_factory
+        query += " AND company_name LIKE ?"; params.append(f"%{q}%")
+    conn = get_conn()
     cursor = conn.cursor()
     cursor.execute(query, params)
     data = cursor.fetchall()
@@ -110,8 +250,7 @@ def get_companies(layer: str = None, tier: str = None, q: str = None):
 
 @app.get("/api/companies/{company_id}")
 def get_company(company_id: int):
-    conn = sqlite3.connect(db_url)
-    conn.row_factory = dict_factory
+    conn = get_conn()
     cursor = conn.cursor()
     cursor.execute("SELECT * FROM companies WHERE id = ?", (company_id,))
     data = cursor.fetchone()
@@ -122,15 +261,30 @@ def get_company(company_id: int):
 
 @app.get("/api/stats")
 def get_stats():
-    conn = sqlite3.connect(db_url)
-    conn.row_factory = dict_factory
+    conn = get_conn()
     cursor = conn.cursor()
     cursor.execute("SELECT COUNT(*) as total FROM companies")
     total = cursor.fetchone()['total']
     cursor.execute("SELECT tier, COUNT(*) as count FROM companies GROUP BY tier")
     tiers = {row['tier'] if row['tier'] else 'other': row['count'] for row in cursor.fetchall()}
     conn.close()
-    return {"total_companies": total, "tier1": tiers.get('T1', 0), "tier2": tiers.get('T2', 0), "tier3": tiers.get('T3', 0)}
+    return {
+        "total_companies": total,
+        "tier1": tiers.get('T1', 0),
+        "tier2": tiers.get('T2', 0),
+        "tier3": tiers.get('T3', 0)
+    }
+
+@app.get("/api/taxonomy")
+def get_taxonomy():
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("SELECT DISTINCT layer FROM companies WHERE layer IS NOT NULL ORDER BY layer")
+    layers = [row['layer'] for row in cursor.fetchall()]
+    cursor.execute("SELECT DISTINCT category FROM companies WHERE category IS NOT NULL ORDER BY category")
+    categories = [row['category'] for row in cursor.fetchall()]
+    conn.close()
+    return {"layers": layers, "categories": categories}
 
 @app.get("/api/feed")
 def get_feed():
@@ -140,67 +294,355 @@ def get_feed():
 def get_activity():
     return []
 
-@app.get("/api/taxonomy")
-def get_taxonomy():
-    conn = sqlite3.connect(db_url)
-    conn.row_factory = dict_factory
+# ============================================================
+# v2 ENDPOINTS
+# ============================================================
+
+class AnalyzeV2Request(BaseModel):
+    company_id: int
+    title: str
+    snippet: str
+
+@app.post("/api/analyze/v2")
+def analyze_v2(req: AnalyzeV2Request):
+    """Pipeline v2: 사실추출 → 변수매핑 → 메모리전이경로 분석"""
+    conn = get_conn()
     cursor = conn.cursor()
-    
-    cursor.execute("SELECT DISTINCT layer FROM companies ORDER BY layer")
-    layers = [row['layer'] for row in cursor.fetchall()]
-    
-    cursor.execute("SELECT DISTINCT category FROM companies ORDER BY category")
-    categories = [row['category'] for row in cursor.fetchall()]
-    
+    cursor.execute("SELECT * FROM companies WHERE id = ?", (req.company_id,))
+    company = cursor.fetchone()
     conn.close()
-    return {"layers": layers, "categories": categories}
+
+    if not company:
+        raise HTTPException(status_code=404, detail="Company not found")
+
+    category = company.get('category') or ''
+    cat_key = company.get('category_key') or extract_category_key(category)
+    layer = company.get('layer') or ''
+    tier = _get_tier(layer)
+
+    # ---- Stage 1: 사실 추출 ----
+    s1_input = f"Company: {company.get('company_name')} | Category: {category}\n\nTitle: {req.title}\nContent: {req.snippet}"
+    s1 = _call_llm(MODEL_FREE, STAGE1_SYSTEM, s1_input)
+
+    if s1.get("_error"):
+        # Mock fallback
+        s1 = {
+            "relevant": True,
+            "facts": {"who": company.get('company_name'), "what": req.title, "how": "N/A", "when": "Recent", "source_type": "news"},
+            "company_match": {"company_name": company.get('company_name'), "category": category, "tier": tier},
+            "is_quantitative": False,
+            "_mock": True
+        }
+
+    if not s1.get("relevant", True):
+        return {"pipeline_version": 2, "stage1_relevant": False, "skipped": True, "company": company.get('company_name')}
+
+    # ---- Stage 2: 변수 매핑 ----
+    var_defs = VARIABLE_DEFINITIONS.get(cat_key, f"Category: {category}. Use general assessment for memory semiconductor demand impact.")
+    s2_system = STAGE2_SYSTEM.format(
+        category=category,
+        tier=tier,
+        variable_definitions=var_defs
+    )
+    s2_input = json.dumps(s1.get("facts", {}))
+    s2 = _call_llm(MODEL_FREE, s2_system, s2_input)
+
+    if s2.get("_error"):
+        s2 = {
+            "variable_id": "V26" if "capex" in req.title.lower() else "V20",
+            "variable_name": "General Signal",
+            "direction": "bullish",
+            "caveat": None,
+            "needs_review": True,
+            "strength": "moderate",
+            "confidence": "medium",
+            "affected_memory": ["HBM", "Conv. DRAM"],
+            "reasoning": f"Mock analysis for {req.title}",
+            "_mock": True
+        }
+
+    # ---- Stage 3: 전이 경로 분석 ----
+    tier_ctx = TIER_CONTEXTS.get(tier, TIER_CONTEXTS.get("tier3", ""))
+    s3_system = STAGE3_SYSTEM.format(tier_context=tier_ctx)
+    s3_input = json.dumps({"facts": s1.get("facts", {}), "signal": s2})
+    s3 = _call_llm(MODEL_PAID, s3_system, s3_input)
+
+    if s3.get("_error"):
+        s3 = {
+            "transmission_path": f"{company.get('company_name')} 관련 이벤트 → 메모리 수요 변화 (Mock)",
+            "memory_impact": {
+                "HBM": {"direction": s2.get("direction","bullish"), "magnitude": "medium", "detail": "Mock analysis"},
+                "Conv_DRAM": {"direction": s2.get("direction","bullish"), "magnitude": "low", "detail": "Mock"},
+                "NAND": {"direction": "neutral", "magnitude": "none", "detail": "Mock"}
+            },
+            "time_lag": "mid_6-12m",
+            "demand_formula_tier": tier,
+            "demand_formula_role": "Mock role",
+            "decision_relevance": "investment_plan",
+            "counterargument": "Mock counterargument",
+            "executive_summary": f"[Mock] {req.title} 관련 분석입니다. API 키를 Railway에 등록하면 실제 분석이 작동합니다.",
+            "_mock": True
+        }
+
+    # ---- DB 저장 ----
+    result = {
+        "pipeline_version": 2,
+        "company": company.get('company_name'),
+        "category": category,
+        "category_key": cat_key,
+        "tier": tier,
+        "stage1": s1,
+        "stage2": s2,
+        "stage3": s3,
+    }
+
+    try:
+        conn2 = get_conn()
+        cur2 = conn2.cursor()
+        cur2.execute("""
+            INSERT INTO analysis_results (
+                company_id, stage1_relevant, stage1_facts,
+                stage2_variable_id, stage2_variable_name,
+                stage2_direction, stage2_caveat, stage2_needs_review,
+                stage2_strength, stage2_confidence, stage2_affected_memory,
+                stage2_reasoning,
+                stage3_transmission_path, stage3_memory_impact,
+                stage3_time_lag, stage3_demand_formula_tier,
+                stage3_demand_formula_role, stage3_decision_relevance,
+                stage3_counterargument, stage3_executive_summary,
+                pipeline_version
+            ) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+        """, (
+            req.company_id,
+            1 if s1.get("relevant") else 0,
+            json.dumps(s1.get("facts", {})),
+            s2.get("variable_id"),
+            s2.get("variable_name"),
+            s2.get("direction"),
+            s2.get("caveat"),
+            1 if s2.get("needs_review") else 0,
+            s2.get("strength"),
+            s2.get("confidence"),
+            json.dumps(s2.get("affected_memory", [])),
+            s2.get("reasoning"),
+            s3.get("transmission_path"),
+            json.dumps(s3.get("memory_impact", {})),
+            s3.get("time_lag"),
+            s3.get("demand_formula_tier"),
+            s3.get("demand_formula_role"),
+            s3.get("decision_relevance"),
+            s3.get("counterargument"),
+            s3.get("executive_summary"),
+            2
+        ))
+        conn2.commit()
+        result["saved_id"] = cur2.lastrowid
+        conn2.close()
+    except Exception as e:
+        result["db_error"] = str(e)
+
+    return result
+
+
+@app.get("/api/signals")
+def get_signals(limit: int = 20, direction: str = None, tier: str = None, variable_id: str = None):
+    """v2 분석 결과 시그널 목록 조회"""
+    query = """
+        SELECT ar.*, c.company_name, c.category, c.layer, c.tier as company_tier
+        FROM analysis_results ar
+        LEFT JOIN companies c ON ar.company_id = c.id
+        WHERE ar.pipeline_version = 2 AND ar.stage1_relevant = 1
+    """
+    params = []
+    if direction:
+        query += " AND ar.stage2_direction = ?"; params.append(direction)
+    if tier:
+        query += " AND ar.stage3_demand_formula_tier = ?"; params.append(tier)
+    if variable_id:
+        query += " AND ar.stage2_variable_id = ?"; params.append(variable_id)
+    query += " ORDER BY ar.analyzed_at DESC LIMIT ?"
+    params.append(limit)
+
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute(query, params)
+    rows = cursor.fetchall()
+    conn.close()
+
+    # JSON 필드 파싱
+    for row in rows:
+        for field in ['stage1_facts', 'stage2_affected_memory', 'stage3_memory_impact']:
+            if row.get(field) and isinstance(row[field], str):
+                try:
+                    row[field] = json.loads(row[field])
+                except:
+                    pass
+    return rows
+
+
+@app.get("/api/drivers")
+def get_drivers():
+    """5개 Memory Demand Driver 집계 점수 계산"""
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT stage2_variable_id, stage2_direction, stage2_strength, stage2_confidence
+        FROM analysis_results
+        WHERE pipeline_version = 2 AND stage1_relevant = 1
+        AND analyzed_at > datetime('now', '-30 days')
+    """)
+    rows = cursor.fetchall()
+    conn.close()
+
+    strength_map = {"strong": 3, "moderate": 2, "weak": 1}
+    confidence_map = {"high": 1.0, "medium": 0.7, "low": 0.4}
+
+    driver_scores = {k: {"score": 0, "count": 0, "bullish": 0, "bearish": 0} for k in ["MD1","MD2","MD3","MD4","MD5"]}
+
+    for row in rows:
+        vid = row.get('stage2_variable_id') or ''
+        driver = VARIABLE_DRIVER_MAP.get(vid)
+        if not driver or driver not in driver_scores:
+            continue
+        direction = row.get('stage2_direction', 'bullish')
+        strength = strength_map.get(row.get('stage2_strength', 'moderate'), 2)
+        confidence = confidence_map.get(row.get('stage2_confidence', 'medium'), 0.7)
+        score = strength * confidence * (1 if direction == 'bullish' else -1)
+        driver_scores[driver]["score"] += score
+        driver_scores[driver]["count"] += 1
+        if direction == 'bullish':
+            driver_scores[driver]["bullish"] += 1
+        else:
+            driver_scores[driver]["bearish"] += 1
+
+    result = []
+    for driver_id, data in driver_scores.items():
+        result.append({
+            "driver_id": driver_id,
+            "driver_name": DRIVER_NAMES.get(driver_id, driver_id),
+            "score": round(data["score"], 2),
+            "count": data["count"],
+            "bullish": data["bullish"],
+            "bearish": data["bearish"],
+            "direction": "bullish" if data["score"] > 0 else ("bearish" if data["score"] < 0 else "neutral")
+        })
+    return result
+
+
+@app.get("/api/divergence-alerts")
+def get_divergence_alerts():
+    """활성 Divergence Alert 계산"""
+    drivers = get_drivers()
+    driver_map = {d["driver_id"]: d for d in drivers}
+
+    active_alerts = []
+    for rule in DIVERGENCE_ALERT_RULES:
+        triggered = False
+        if rule["id"] == "DA1":
+            triggered = (driver_map.get("MD1", {}).get("direction") == "bullish" and
+                        driver_map.get("MD4", {}).get("direction") == "bearish")
+        elif rule["id"] == "DA2":
+            triggered = (driver_map.get("MD4", {}).get("direction") == "bullish" and
+                        driver_map.get("MD2", {}).get("direction") == "bearish")
+        elif rule["id"] == "DA4":
+            triggered = all(driver_map.get(d, {}).get("direction") == "bearish"
+                          for d in ["MD1", "MD2", "MD4"])
+        elif rule["id"] == "DA5":
+            triggered = all(driver_map.get(d, {}).get("direction") == "bullish"
+                          for d in ["MD1", "MD4", "MD5"])
+
+        if triggered:
+            active_alerts.append({**rule, "active": True})
+
+    return {"active_alerts": active_alerts, "total": len(active_alerts)}
+
+
+@app.get("/api/expected-events")
+def get_expected_events(weeks: int = 4):
+    """Expected Event Calendar 조회"""
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("""
+        SELECT ee.*, c.company_name
+        FROM expected_events ee
+        LEFT JOIN companies c ON ee.company_id = c.id
+        WHERE ee.expected_date >= date('now')
+        AND ee.expected_date <= date('now', ? || ' days')
+        ORDER BY ee.expected_date ASC
+    """, (weeks * 7,))
+    rows = cursor.fetchall()
+    conn.close()
+    for row in rows:
+        if row.get('variable_ids') and isinstance(row['variable_ids'], str):
+            try:
+                row['variable_ids'] = json.loads(row['variable_ids'])
+            except:
+                pass
+    return rows
+
+
+class ExpectedEventRequest(BaseModel):
+    company_id: int = None
+    event_type: str
+    expected_date: str
+    description: str
+    variable_ids: list = []
+    source: str = None
+    is_confirmed: bool = True
+
+@app.post("/api/expected-events")
+def create_expected_event(req: ExpectedEventRequest):
+    """Expected Event 수동 등록"""
+    conn = get_conn()
+    cursor = conn.cursor()
+    cursor.execute("""
+        INSERT INTO expected_events (company_id, event_type, expected_date, description, variable_ids, source, is_confirmed)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    """, (
+        req.company_id, req.event_type, req.expected_date,
+        req.description, json.dumps(req.variable_ids),
+        req.source, 1 if req.is_confirmed else 0
+    ))
+    conn.commit()
+    event_id = cursor.lastrowid
+    conn.close()
+    return {"id": event_id, "message": "Event created"}
+
+
+# ============================================================
+# v1 호환 analyze endpoint (기존 프론트엔드용)
+# ============================================================
 
 class AnalyzeRequest(BaseModel):
     news_content: str
 
 @app.post("/api/analyze")
 def analyze_news(request: AnalyzeRequest):
+    """v1 호환 엔드포인트 (기존 UI용)"""
     content = request.news_content
     try:
-        # Stage 1
         response1 = litellm.completion(
             model=MODEL_FREE,
-            messages=[{"role": "user", "content": f"Is this news related to memory semiconductors? Reply with 'yes' or 'no' only.\n\n{content}"}]
+            messages=[{"role": "user", "content": f"Is this news related to memory semiconductors? Reply 'yes' or 'no' only.\n\n{content}"}]
         )
         is_related = response1.choices[0].message.content.strip().lower()
-        
         if "no" in is_related:
-            return {"is_memory_related": False, "reason": "Not related to memory semiconductor."}
-            
-        # Stage 2
+            return {"is_memory_related": False}
         response2 = litellm.completion(
             model=MODEL_FREE,
-            messages=[{"role": "user", "content": f"Tag the event_type and memory_signal for this news.\n\n{content}"}]
+            messages=[{"role": "user", "content": f"Tag event_type and memory_signal.\n\n{content}"}]
         )
         tagging = response2.choices[0].message.content
-        
-        # Stage 3
         response3 = litellm.completion(
             model=MODEL_PAID,
-            messages=[{"role": "user", "content": f"Analyze impact_score (1-10), implications, and timeframe based on tags: {tagging}\n\n{content}"}]
+            messages=[{"role": "user", "content": f"Analyze impact_score(1-10), implications, timeframe. Tags: {tagging}\n\n{content}"}]
         )
-        impact = response3.choices[0].message.content
-        
-        return {
-            "is_memory_related": True,
-            "tagging": tagging,
-            "impact_analysis": impact
-        }
+        return {"is_memory_related": True, "tagging": tagging, "impact_analysis": response3.choices[0].message.content}
     except Exception as e:
-        print(f"LLM API Error: {e}")
-        # Graceful degradation for testing
-        return {
-            "is_memory_related": True,
-            "tagging": "[Mock] Event: New Product, Signal: High Bandwidth Requirement",
-            "impact_analysis": f"[Mock] Impact Score: 8/10. Error encountered: {str(e)}",
-            "is_mock": True
-        }
+        return {"is_memory_related": True, "tagging": "[Mock]", "impact_analysis": f"[Mock] Error: {str(e)}", "is_mock": True}
+
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
