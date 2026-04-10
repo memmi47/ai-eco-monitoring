@@ -19,8 +19,14 @@ sys.path.append(BASE_DIR)
 sys.path.append(os.path.join(BASE_DIR, 'database'))
 
 try:
-    import seed_db
-except ImportError:
+    import importlib.util as _ilu
+    _seed_spec = _ilu.spec_from_file_location(
+        "seed_db",
+        os.path.join(BASE_DIR, "database", "seed_db.py")
+    )
+    seed_db = _ilu.module_from_spec(_seed_spec)
+    _seed_spec.loader.exec_module(seed_db)
+except Exception:
     seed_db = None
 
 try:
