@@ -27,13 +27,7 @@ if not logger.handlers:
     logging.basicConfig(
         level=logging.INFO,
         format="%(asctime)s [COLLECTOR] %(message)s",
-        handlers=[
-            logging.StreamHandler(),
-            logging.FileHandler(
-                os.path.join(os.path.dirname(__file__), "collector.log"),
-                encoding="utf-8"
-            ),
-        ],
+        handlers=[logging.StreamHandler()],
     )
 
 # ============================================================
@@ -53,8 +47,9 @@ STATIC_RSS_FEEDS = [
 
 GOOGLE_NEWS_RSS = "https://news.google.com/rss/search?q={query}&hl=en-US&gl=US&ceid=US:en"
 
-# API 엔드포인트 (백엔드 자기 자신)
-ANALYZE_ENDPOINT = os.environ.get("ANALYZE_ENDPOINT", "http://localhost:8000/api/analyze/v2")
+# API 엔드포인트 (백엔드 자기 자신) — Railway는 PORT 환경변수로 포트가 결정됨
+_PORT = os.environ.get("PORT", "8000")
+ANALYZE_ENDPOINT = os.environ.get("ANALYZE_ENDPOINT", f"http://localhost:{_PORT}/api/analyze/v2")
 
 # 요청 사이 대기 시간 (초) — Google News RSS rate limit 방지
 REQUEST_DELAY = float(os.environ.get("COLLECTOR_REQUEST_DELAY", "0.5"))
