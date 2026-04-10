@@ -133,26 +133,20 @@ def startup_event():
         conn.close()
 
     # ---- 뉴스 수집 스케줄러 시작 (SQLite/PostgreSQL 공통) ----
+    # 매일 22:00 UTC (한국시간 오전 7시) — 피크타임 회피, 전체 기업 1회 수집
     try:
         from apscheduler.schedulers.background import BackgroundScheduler
+        from apscheduler.triggers.cron import CronTrigger
         from collector import run_collection_job
 
-        db_path_for_collector = db_url  # PostgreSQL이면 URL 그대로, SQLite면 파일 경로
         _scheduler = BackgroundScheduler(timezone="UTC")
-        # T1 핵심기업: 6시간마다
         _scheduler.add_job(
-            run_collection_job, "interval", hours=6,
-            args=[db_path_for_collector, "T1"],
-            id="news_collector_t1", replace_existing=True,
-        )
-        # 전체 기업: 24시간마다
-        _scheduler.add_job(
-            run_collection_job, "interval", hours=24,
-            args=[db_path_for_collector, None],
-            id="news_collector_all", replace_existing=True,
+            run_collection_job, CronTrigger(hour=22, minute=0),
+            args=[db_url],
+            id="news_collector_daily", replace_existing=True,
         )
         _scheduler.start()
-        logger.info("뉴스 수집 스케줄러 시작 (T1: 6h, 전체: 24h)")
+        logger.info("뉴스 수집 스케줄러 시작 (매일 22:00 UTC / 한국시간 07:00)")
     except ImportError as e:
         logger.warning(f"스케줄러 초기화 실패 (의존성 확인 필요): {e}")
 
