@@ -4,6 +4,7 @@ import json
 import logging
 import sqlite3
 import threading
+from typing import Optional
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
@@ -428,7 +429,7 @@ def get_activity():
 # ============================================================
 
 class CollectRequest(BaseModel):
-    tier_filter: str | None = None  # "T1" | "T2" | "T3" | None (전체)
+    tier_filter: Optional[str] = None  # "T1" | "T2" | "T3" | None (전체)
 
 @app.post("/api/collect")
 def manual_collect(req: CollectRequest = CollectRequest()):
