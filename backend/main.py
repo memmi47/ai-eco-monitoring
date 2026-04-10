@@ -84,42 +84,71 @@ _scheduler = None
 @app.on_event("startup")
 def startup_event():
     global _scheduler
-    if db_url.startswith("postgresql"):
-        print(f"Connecting to external PostgreSQL: {db_url}")
-        return
-    db_dir = os.path.dirname(db_url)
-    if db_dir and not os.path.exists(db_dir):
-        os.makedirs(db_dir, exist_ok=True)
-    conn = sqlite3.connect(db_url)
-    cursor = conn.cursor()
-    cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
-    if not cursor.fetchone():
-        print("Initializing DB...")
-        if seed_db:
-            seed_db.main()
+
+    # ---- DB 초기화 (SQLite / PostgreSQL 공통) ----
+    if _IS_PG:
+        print(f"Connecting to PostgreSQL: {db_url.split('@')[-1]}")
+        # PostgreSQL: 테이블 존재 여부 확인 후 시딩
+        try:
+            conn = get_conn()
+            cursor = conn.cursor()
+            cursor.execute(
+                "SELECT 1 FROM information_schema.tables WHERE table_name = 'companies'"
+            )
+            table_exists = cursor.fetchone()
+            if not table_exists:
+                print("Initializing DB schema & seeding...")
+                if seed_db:
+                    seed_db.main()
+            else:
+                cursor.execute("SELECT COUNT(*) as cnt FROM companies")
+                row = cursor.fetchone()
+                cnt = row.get("cnt", 0) if row else 0
+                if cnt == 0:
+                    print("Seeding companies table...")
+                    if seed_db:
+                        seed_db.main()
+                else:
+                    print(f"DB ready: {cnt} companies loaded")
+            conn.close()
+        except Exception as e:
+            print(f"PostgreSQL 초기화 오류: {e}")
     else:
-        cursor.execute("SELECT COUNT(*) FROM companies")
-        if cursor.fetchone()[0] == 0:
+        # SQLite: 기존 로직 유지
+        db_dir = os.path.dirname(db_url)
+        if db_dir and not os.path.exists(db_dir):
+            os.makedirs(db_dir, exist_ok=True)
+        conn = sqlite3.connect(db_url)
+        cursor = conn.cursor()
+        cursor.execute("SELECT name FROM sqlite_master WHERE type='table' AND name='companies'")
+        if not cursor.fetchone():
+            print("Initializing DB...")
             if seed_db:
                 seed_db.main()
-    conn.close()
+        else:
+            cursor.execute("SELECT COUNT(*) FROM companies")
+            if cursor.fetchone()[0] == 0:
+                if seed_db:
+                    seed_db.main()
+        conn.close()
 
-    # ---- 뉴스 수집 스케줄러 시작 ----
+    # ---- 뉴스 수집 스케줄러 시작 (SQLite/PostgreSQL 공통) ----
     try:
         from apscheduler.schedulers.background import BackgroundScheduler
         from collector import run_collection_job
 
+        db_path_for_collector = db_url  # PostgreSQL이면 URL 그대로, SQLite면 파일 경로
         _scheduler = BackgroundScheduler(timezone="UTC")
         # T1 핵심기업: 6시간마다
         _scheduler.add_job(
             run_collection_job, "interval", hours=6,
-            args=[DEFAULT_DB_PATH, "T1"],
+            args=[db_path_for_collector, "T1"],
             id="news_collector_t1", replace_existing=True,
         )
         # 전체 기업: 24시간마다
         _scheduler.add_job(
             run_collection_job, "interval", hours=24,
-            args=[DEFAULT_DB_PATH, None],
+            args=[db_path_for_collector, None],
             id="news_collector_all", replace_existing=True,
         )
         _scheduler.start()
