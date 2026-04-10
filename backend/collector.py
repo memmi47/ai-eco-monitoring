@@ -58,11 +58,24 @@ REQUEST_DELAY = float(os.environ.get("COLLECTOR_REQUEST_DELAY", "0.5"))
 # DB 헬퍼
 # ============================================================
 
-def _get_db_conn(db_path: str) -> sqlite3.Connection:
-    """Collector 전용 SQLite 연결 (thread-safe, row_factory 적용)."""
+def _get_db_conn(db_path: str):
+    """Collector 전용 DB 연결 (SQLite 또는 PostgreSQL 자동 감지)."""
+    if db_path.startswith(("postgresql://", "postgres://")):
+        import psycopg2
+        import psycopg2.extras
+        conn = psycopg2.connect(db_path)
+        conn.autocommit = False
+        return conn, "pg"
     conn = sqlite3.connect(db_path, check_same_thread=False)
     conn.row_factory = sqlite3.Row
-    return conn
+    return conn, "sqlite"
+
+
+def _fetchall(cursor, db_type: str) -> list[dict]:
+    rows = cursor.fetchall()
+    if db_type == "pg":
+        return [dict(r) for r in rows]
+    return [dict(r) for r in rows]
 
 
 def load_companies(db_path: str, tier_filter: Optional[str] = None) -> list[dict]:
@@ -70,19 +83,18 @@ def load_companies(db_path: str, tier_filter: Optional[str] = None) -> list[dict
     companies 테이블에서 기업 목록 로드.
     tier_filter: "T1" | "T2" | "T3" | None (전체)
     """
-    conn = _get_db_conn(db_path)
+    conn, db_type = _get_db_conn(db_path)
     try:
         cursor = conn.cursor()
+        ph = "%s" if db_type == "pg" else "?"
         if tier_filter:
-            # tier 컬럼이 없을 경우를 대비해 layer 기반 tier도 시도
             cursor.execute(
-                "SELECT id, company_name, tier FROM companies WHERE tier = ?",
+                f"SELECT id, company_name, tier FROM companies WHERE tier = {ph}",
                 (tier_filter,)
             )
         else:
             cursor.execute("SELECT id, company_name, tier FROM companies")
-        rows = [dict(r) for r in cursor.fetchall()]
-        return rows
+        return _fetchall(cursor, db_type)
     except Exception as e:
         logger.error(f"기업 목록 로드 실패: {e}")
         return []
@@ -90,35 +102,40 @@ def load_companies(db_path: str, tier_filter: Optional[str] = None) -> list[dict
         conn.close()
 
 
-def check_duplicate(url: str, conn: sqlite3.Connection) -> bool:
+def check_duplicate(url: str, conn, db_type: str) -> bool:
     """crawl_history에 동일 URL이 존재하면 True 반환."""
     try:
         cursor = conn.cursor()
-        cursor.execute("SELECT 1 FROM crawl_history WHERE source_url = ? LIMIT 1", (url,))
+        ph = "%s" if db_type == "pg" else "?"
+        cursor.execute(f"SELECT 1 FROM crawl_history WHERE source_url = {ph} LIMIT 1", (url,))
         return cursor.fetchone() is not None
     except Exception:
         return False
 
 
-def save_crawl_history(article: dict, company_id: int, conn: sqlite3.Connection) -> Optional[int]:
+def save_crawl_history(article: dict, company_id: int, conn, db_type: str) -> Optional[int]:
     """crawl_history에 기사 저장. 저장된 row id 반환."""
     try:
         cursor = conn.cursor()
-        cursor.execute(
-            """
+        ph = "%s" if db_type == "pg" else "?"
+        sql = f"""
             INSERT INTO crawl_history (company_id, title, source_url, published_date, content, crawled_at)
-            VALUES (?, ?, ?, ?, ?, ?)
-            """,
-            (
-                company_id,
-                article.get("title", "")[:500],
-                article.get("url", ""),
-                article.get("published"),
-                article.get("snippet", "")[:2000],
-                datetime.now(timezone.utc).isoformat(),
-            ),
-        )
+            VALUES ({ph}, {ph}, {ph}, {ph}, {ph}, {ph})
+        """
+        if db_type == "pg":
+            sql = sql.strip() + " RETURNING id"
+        cursor.execute(sql, (
+            company_id,
+            article.get("title", "")[:500],
+            article.get("url", ""),
+            article.get("published"),
+            article.get("snippet", "")[:2000],
+            datetime.now(timezone.utc).isoformat(),
+        ))
         conn.commit()
+        if db_type == "pg":
+            row = cursor.fetchone()
+            return row["id"] if row else None
         return cursor.lastrowid
     except Exception as e:
         logger.warning(f"crawl_history 저장 실패 ({article.get('url','')}): {e}")
@@ -261,7 +278,7 @@ def run_collection_job(db_path: str, tier_filter: Optional[str] = None):
 
     logger.info(f"대상 기업 수: {len(companies)} {label}")
 
-    conn = _get_db_conn(db_path)
+    conn, db_type = _get_db_conn(db_path)
 
     total_fetched = 0
     total_filtered = 0
@@ -284,10 +301,10 @@ def run_collection_job(db_path: str, tier_filter: Optional[str] = None):
 
         for article in filtered_static:
             url = article.get("url", "")
-            if not url or check_duplicate(url, conn):
+            if not url or check_duplicate(url, conn, db_type):
                 continue
             cid = article.get("company_id")
-            row_id = save_crawl_history(article, cid or 0, conn)
+            row_id = save_crawl_history(article, cid or 0, conn, db_type)
             if row_id and cid:
                 total_saved += 1
                 result = trigger_analysis(cid, article["title"], article["snippet"])
@@ -307,16 +324,15 @@ def run_collection_job(db_path: str, tier_filter: Optional[str] = None):
                 articles = fetch_google_news(cname)
                 total_fetched += len(articles)
 
-                # 이 경우 모든 기사가 해당 기업 관련이므로 company_id 직접 할당
                 for a in articles:
                     a["company_id"] = company["id"]
 
                 for article in articles:
                     url = article.get("url", "")
-                    if not url or check_duplicate(url, conn):
+                    if not url or check_duplicate(url, conn, db_type):
                         continue
                     total_filtered += 1
-                    save_crawl_history(article, company["id"], conn)
+                    save_crawl_history(article, company["id"], conn, db_type)
                     total_saved += 1
                     result = trigger_analysis(company["id"], article["title"], article["snippet"])
                     if "error" in result:
