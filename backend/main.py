@@ -1,12 +1,16 @@
 import os
 import sys
 import json
+import logging
 import sqlite3
+import threading
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from dotenv import load_dotenv
 import litellm
+
+logger = logging.getLogger("main")
 
 load_dotenv()
 
@@ -74,8 +78,11 @@ app.add_middleware(
 # STARTUP
 # ============================================================
 
+_scheduler = None
+
 @app.on_event("startup")
 def startup_event():
+    global _scheduler
     if db_url.startswith("postgresql"):
         print(f"Connecting to external PostgreSQL: {db_url}")
         return
@@ -95,6 +102,37 @@ def startup_event():
             if seed_db:
                 seed_db.main()
     conn.close()
+
+    # ---- 뉴스 수집 스케줄러 시작 ----
+    try:
+        from apscheduler.schedulers.background import BackgroundScheduler
+        from collector import run_collection_job
+
+        _scheduler = BackgroundScheduler(timezone="UTC")
+        # T1 핵심기업: 6시간마다
+        _scheduler.add_job(
+            run_collection_job, "interval", hours=6,
+            args=[DEFAULT_DB_PATH, "T1"],
+            id="news_collector_t1", replace_existing=True,
+        )
+        # 전체 기업: 24시간마다
+        _scheduler.add_job(
+            run_collection_job, "interval", hours=24,
+            args=[DEFAULT_DB_PATH, None],
+            id="news_collector_all", replace_existing=True,
+        )
+        _scheduler.start()
+        logger.info("뉴스 수집 스케줄러 시작 (T1: 6h, 전체: 24h)")
+    except ImportError as e:
+        logger.warning(f"스케줄러 초기화 실패 (의존성 확인 필요): {e}")
+
+
+@app.on_event("shutdown")
+def shutdown_event():
+    global _scheduler
+    if _scheduler and _scheduler.running:
+        _scheduler.shutdown(wait=False)
+        logger.info("스케줄러 종료")
 
 # ============================================================
 # DB HELPER
@@ -384,6 +422,30 @@ def get_feed():
 @app.get("/api/activity")
 def get_activity():
     return []
+
+# ============================================================
+# COLLECTOR ENDPOINTS
+# ============================================================
+
+class CollectRequest(BaseModel):
+    tier_filter: str | None = None  # "T1" | "T2" | "T3" | None (전체)
+
+@app.post("/api/collect")
+def manual_collect(req: CollectRequest = CollectRequest()):
+    """수동 뉴스 수집 트리거 (백그라운드 실행)."""
+    try:
+        from collector import run_collection_job
+    except ImportError:
+        raise HTTPException(status_code=500, detail="collector 모듈을 로드할 수 없습니다. requirements.txt를 확인하세요.")
+
+    t = threading.Thread(
+        target=run_collection_job,
+        args=[DEFAULT_DB_PATH, req.tier_filter],
+        daemon=True,
+    )
+    t.start()
+    label = req.tier_filter or "전체"
+    return {"status": "started", "message": f"뉴스 수집 작업 시작됨 (대상: {label} 기업)"}
 
 # ============================================================
 # v2 ENDPOINTS

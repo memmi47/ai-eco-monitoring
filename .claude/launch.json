@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Frontend (Next.js)",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "frontend"],
+      "port": 3000
+    },
+    {
+      "name": "Backend (FastAPI)",
+      "runtimeExecutable": "/Users/jungdo/Library/Python/3.9/bin/uvicorn",
+      "runtimeArgs": ["backend.main:app", "--port", "8000", "--loop", "asyncio"],
+      "port": 8000
+    }
+  ]
+}
