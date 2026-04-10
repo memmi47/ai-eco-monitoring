@@ -7,17 +7,32 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 type FilterDirection = 'all' | 'bullish' | 'bearish';
 type FilterTier = 'all' | 'tier1' | 'tier2' | 'tier3';
+type FilterRelevance = 'default' | 'strategic';
+
+const RELEVANCE_LABELS: Record<string, string> = {
+  current_quarter:    '당분기',
+  next_quarter:       '차분기',
+  investment_plan:    '투자계획',
+  strategic_reference:'전략참조',
+};
 
 export default function NewsFeed() {
   const [signals, setSignals] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
   const [filterDir, setFilterDir] = useState<FilterDirection>('all');
   const [filterTier, setFilterTier] = useState<FilterTier>('all');
+  const [filterRelevance, setFilterRelevance] = useState<FilterRelevance>('default');
 
   useEffect(() => {
     const params = new URLSearchParams({ limit: '30' });
     if (filterDir !== 'all') params.set('direction', filterDir);
     if (filterTier !== 'all') params.set('tier', filterTier);
+    // design_v2: 기본 뷰는 strategic_reference 제외, strategic 뷰는 strategic_reference만 표시
+    if (filterRelevance === 'default') {
+      params.set('exclude_strategic', 'true');
+    } else {
+      params.set('decision_relevance', 'strategic_reference');
+    }
 
     fetch(`${API_URL}/api/signals?${params}`)
       .then(res => res.ok ? res.json() : [])
@@ -26,7 +41,7 @@ export default function NewsFeed() {
         setLoading(false);
       })
       .catch(() => setLoading(false));
-  }, [filterDir, filterTier]);
+  }, [filterDir, filterTier, filterRelevance]);
 
   const filterBtnBase = 'text-[10px] font-bold px-3 py-1 rounded-full transition-all border';
   const activeDir = (val: FilterDirection) =>
@@ -61,6 +76,22 @@ export default function NewsFeed() {
           <button className={`${filterBtnBase} ${activeTier('tier1')}`} onClick={() => setFilterTier('tier1')}>T1 Infra</button>
           <button className={`${filterBtnBase} ${activeTier('tier2')}`} onClick={() => setFilterTier('tier2')}>T2 Model</button>
           <button className={`${filterBtnBase} ${activeTier('tier3')}`} onClick={() => setFilterTier('tier3')}>T3 App</button>
+        </div>
+        {/* Decision Relevance 뷰 전환 — design_v2: Strategic은 별도 뷰 */}
+        <div className="flex gap-1.5 flex-wrap items-center">
+          <span className="text-[10px] text-gray-600 font-semibold uppercase tracking-wider">뷰:</span>
+          <button
+            className={`${filterBtnBase} ${filterRelevance === 'default' ? 'bg-white/15 text-white border-white/20' : 'bg-white/5 text-gray-500 border-white/10 hover:bg-white/10'}`}
+            onClick={() => setFilterRelevance('default')}
+          >
+            {RELEVANCE_LABELS['current_quarter']} · {RELEVANCE_LABELS['next_quarter']} · {RELEVANCE_LABELS['investment_plan']}
+          </button>
+          <button
+            className={`${filterBtnBase} ${filterRelevance === 'strategic' ? 'bg-violet-500/20 text-violet-400 border-violet-500/30' : 'bg-white/5 text-gray-500 border-white/10 hover:bg-white/10'}`}
+            onClick={() => setFilterRelevance('strategic')}
+          >
+            🔭 {RELEVANCE_LABELS['strategic_reference']}
+          </button>
         </div>
       </div>
 

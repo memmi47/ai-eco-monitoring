@@ -1,7 +1,5 @@
 'use client';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
-
 const DIRECTION_STYLES = {
   bullish: {
     badge: 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30',
@@ -170,6 +168,14 @@ export default function SignalCard({ signal }: SignalCardProps) {
       {signal.stage2_caveat && (
         <div className="bg-yellow-500/5 border border-yellow-500/15 rounded-lg p-2.5 mb-3">
           <p className="text-[10px] text-yellow-400/80 leading-relaxed">⚠ {signal.stage2_caveat}</p>
+        </div>
+      )}
+
+      {/* Counterargument (Stage 3) */}
+      {signal.stage3_counterargument && (
+        <div className="bg-slate-500/5 border border-slate-500/15 rounded-lg p-2.5 mb-3">
+          <p className="text-[10px] font-semibold text-slate-500 uppercase tracking-wider mb-1">반론</p>
+          <p className="text-[10px] text-slate-400/80 leading-relaxed">↩ {signal.stage3_counterargument}</p>
         </div>
       )}
 

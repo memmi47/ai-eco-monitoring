@@ -27,7 +27,8 @@ try:
     from variable_definitions import (
         VARIABLE_DEFINITIONS, TIER_CONTEXTS,
         _get_tier, extract_category_key,
-        VARIABLE_DRIVER_MAP, DRIVER_NAMES, DIVERGENCE_ALERT_RULES
+        VARIABLE_DRIVER_MAP, DRIVER_NAMES, DIVERGENCE_ALERT_RULES,
+        VARIABLE_WEIGHTS
     )
 except ImportError:
     VARIABLE_DEFINITIONS = {}
@@ -35,11 +36,13 @@ except ImportError:
     VARIABLE_DRIVER_MAP = {}
     DRIVER_NAMES = {}
     DIVERGENCE_ALERT_RULES = []
+    VARIABLE_WEIGHTS = {}
     def _get_tier(layer): return "tier3"
     def extract_category_key(cat): return "XX"
 
 DEFAULT_DB_PATH = os.path.join(BASE_DIR, "database", "ai_eco_monitor.db")
 db_url = os.environ.get("DATABASE_URL", DEFAULT_DB_PATH)
+_IS_PG = db_url.startswith(("postgresql://", "postgres://"))
 MODEL_FREE = "openrouter/google/gemma-2-9b-it:free"
 MODEL_PAID = "openrouter/google/gemini-flash-1.5"
 
@@ -94,7 +97,89 @@ def startup_event():
 def dict_factory(cursor, row):
     return {col[0]: row[idx] for idx, col in enumerate(cursor.description)}
 
+
+class _PGCursorAdapter:
+    """psycopg2 커서를 sqlite3 호환 인터페이스로 래핑.
+    - ? → %s 플레이스홀더 자동 변환
+    - INSERT 시 RETURNING id로 lastrowid 에뮬레이션
+    """
+    def __init__(self, cursor):
+        self._cur = cursor
+        self.lastrowid = None
+        self.description = None
+
+    @staticmethod
+    def _to_pg_sql(query: str) -> str:
+        """SQLite 전용 SQL 구문을 PostgreSQL 호환으로 변환."""
+        import re
+        q = query.replace("?", "%s")
+        # datetime('now', '-30 days') → NOW() - INTERVAL '30 days'
+        q = re.sub(
+            r"datetime\('now',\s*'-(\d+)\s*days'\)",
+            r"NOW() - INTERVAL '\1 days'",
+            q,
+        )
+        # date('now', %s || ' days') → CURRENT_DATE + (%s * INTERVAL '1 day')
+        q = re.sub(
+            r"date\('now',\s*%s\s*\|\|\s*'[^']*days[^']*'\)",
+            r"CURRENT_DATE + (%s * INTERVAL '1 day')",
+            q,
+        )
+        # date('now') → CURRENT_DATE
+        q = re.sub(r"date\('now'\)", "CURRENT_DATE", q)
+        # sqlite_master → information_schema.tables (스타트업 체크용)
+        q = q.replace("sqlite_master", "information_schema.tables")
+        return q
+
+    def execute(self, query: str, params=None):
+        pg_query = self._to_pg_sql(query)
+        is_insert = pg_query.strip().upper().startswith("INSERT")
+        if is_insert and "RETURNING" not in pg_query.upper():
+            pg_query = pg_query.rstrip(";").rstrip() + " RETURNING id"
+        self._cur.execute(pg_query, params or ())
+        self.description = self._cur.description
+        if is_insert:
+            row = self._cur.fetchone()
+            self.lastrowid = row["id"] if row else None
+
+    def fetchone(self):
+        row = self._cur.fetchone()
+        return dict(row) if row else None
+
+    def fetchall(self):
+        return [dict(r) for r in self._cur.fetchall()]
+
+    @property
+    def rowcount(self):
+        return self._cur.rowcount
+
+
+class _PGConnAdapter:
+    """psycopg2 연결을 sqlite3 호환 인터페이스로 래핑"""
+    def __init__(self):
+        try:
+            import psycopg2
+            import psycopg2.extras
+        except ImportError:
+            raise RuntimeError(
+                "psycopg2가 설치되지 않았습니다. pip install psycopg2-binary"
+            )
+        self._conn = psycopg2.connect(db_url)
+        self._RDC = psycopg2.extras.RealDictCursor
+
+    def cursor(self):
+        return _PGCursorAdapter(self._conn.cursor(cursor_factory=self._RDC))
+
+    def commit(self):
+        self._conn.commit()
+
+    def close(self):
+        self._conn.close()
+
+
 def get_conn():
+    if _IS_PG:
+        return _PGConnAdapter()
     conn = sqlite3.connect(db_url)
     conn.row_factory = dict_factory
     return conn
@@ -192,7 +277,7 @@ Respond in JSON only. No markdown, no explanation.
   "transmission_path": "Specific A→B→C chain. Example: 'MS capex +19% → GPU server orders increase → HBM demand +15-20% in 6-9M'",
   "memory_impact": {{
     "HBM": {{"direction": "bullish|bearish|neutral", "magnitude": "high|medium|low|none", "detail": "specific impact"}},
-    "Conv_DRAM": {{"direction": "...", "magnitude": "...", "detail": "..."}},
+    "Conv. DRAM": {{"direction": "...", "magnitude": "...", "detail": "..."}},
     "NAND": {{"direction": "...", "magnitude": "...", "detail": "..."}}
   }},
   "time_lag": "immediate|short_3-6m|mid_6-12m|long_12m+",
@@ -372,7 +457,7 @@ def analyze_v2(req: AnalyzeV2Request):
             "transmission_path": f"{company.get('company_name')} 관련 이벤트 → 메모리 수요 변화 (Mock)",
             "memory_impact": {
                 "HBM": {"direction": s2.get("direction","bullish"), "magnitude": "medium", "detail": "Mock analysis"},
-                "Conv_DRAM": {"direction": s2.get("direction","bullish"), "magnitude": "low", "detail": "Mock"},
+                "Conv. DRAM": {"direction": s2.get("direction","bullish"), "magnitude": "low", "detail": "Mock"},
                 "NAND": {"direction": "neutral", "magnitude": "none", "detail": "Mock"}
             },
             "time_lag": "mid_6-12m",
@@ -445,8 +530,19 @@ def analyze_v2(req: AnalyzeV2Request):
 
 
 @app.get("/api/signals")
-def get_signals(limit: int = 20, direction: str = None, tier: str = None, variable_id: str = None):
-    """v2 분석 결과 시그널 목록 조회"""
+def get_signals(
+    limit: int = 20,
+    direction: str = None,
+    tier: str = None,
+    variable_id: str = None,
+    decision_relevance: str = None,
+    exclude_strategic: bool = False,
+):
+    """v2 분석 결과 시그널 목록 조회.
+
+    decision_relevance: current_quarter|next_quarter|investment_plan|strategic_reference
+    exclude_strategic: True이면 strategic_reference 제외 (기본 뷰용)
+    """
     query = """
         SELECT ar.*, c.company_name, c.category, c.layer, c.tier as company_tier
         FROM analysis_results ar
@@ -460,6 +556,10 @@ def get_signals(limit: int = 20, direction: str = None, tier: str = None, variab
         query += " AND ar.stage3_demand_formula_tier = ?"; params.append(tier)
     if variable_id:
         query += " AND ar.stage2_variable_id = ?"; params.append(variable_id)
+    if decision_relevance:
+        query += " AND ar.stage3_decision_relevance = ?"; params.append(decision_relevance)
+    if exclude_strategic:
+        query += " AND (ar.stage3_decision_relevance IS NULL OR ar.stage3_decision_relevance != 'strategic_reference')"
     query += " ORDER BY ar.analyzed_at DESC LIMIT ?"
     params.append(limit)
 
@@ -497,7 +597,8 @@ def get_drivers():
     strength_map = {"strong": 3, "moderate": 2, "weak": 1}
     confidence_map = {"high": 1.0, "medium": 0.7, "low": 0.4}
 
-    driver_scores = {k: {"score": 0, "count": 0, "bullish": 0, "bearish": 0} for k in ["MD1","MD2","MD3","MD4","MD5"]}
+    # design_v2 집계 공식: Σ(방향 × 강도 × Confidence × Weight) / Σ Weight
+    driver_scores = {k: {"score": 0, "weight_sum": 0, "count": 0, "bullish": 0, "bearish": 0} for k in ["MD1","MD2","MD3","MD4","MD5"]}
 
     for row in rows:
         vid = row.get('stage2_variable_id') or ''
@@ -507,8 +608,10 @@ def get_drivers():
         direction = row.get('stage2_direction', 'bullish')
         strength = strength_map.get(row.get('stage2_strength', 'moderate'), 2)
         confidence = confidence_map.get(row.get('stage2_confidence', 'medium'), 0.7)
-        score = strength * confidence * (1 if direction == 'bullish' else -1)
-        driver_scores[driver]["score"] += score
+        weight = VARIABLE_WEIGHTS.get(vid, 1)
+        sign = 1 if direction == 'bullish' else -1
+        driver_scores[driver]["score"] += strength * confidence * weight * sign
+        driver_scores[driver]["weight_sum"] += weight
         driver_scores[driver]["count"] += 1
         if direction == 'bullish':
             driver_scores[driver]["bullish"] += 1
@@ -517,23 +620,70 @@ def get_drivers():
 
     result = []
     for driver_id, data in driver_scores.items():
+        # 가중 평균 정규화 (weight_sum이 0이면 neutral)
+        normalized = data["score"] / data["weight_sum"] if data["weight_sum"] > 0 else 0
         result.append({
             "driver_id": driver_id,
             "driver_name": DRIVER_NAMES.get(driver_id, driver_id),
-            "score": round(data["score"], 2),
+            "score": round(normalized, 2),
             "count": data["count"],
             "bullish": data["bullish"],
             "bearish": data["bearish"],
-            "direction": "bullish" if data["score"] > 0 else ("bearish" if data["score"] < 0 else "neutral")
+            "direction": "bullish" if normalized > 0 else ("bearish" if normalized < 0 else "neutral")
         })
     return result
 
 
+def _get_da3_signals() -> dict:
+    """DA3 판정용: 최근 30일 V35 bearish 카운트 + MD4 평균 strength 조회"""
+    conn = get_conn()
+    cursor = conn.cursor()
+    # V35 bearish 건수
+    cursor.execute("""
+        SELECT COUNT(*) as cnt
+        FROM analysis_results
+        WHERE pipeline_version = 2 AND stage1_relevant = 1
+        AND stage2_variable_id = 'V35' AND stage2_direction = 'bearish'
+        AND analyzed_at > datetime('now', '-30 days')
+    """)
+    row = cursor.fetchone()
+    v35_bearish_count = row['cnt'] if row else 0
+
+    # MD4 소속 변수들의 최근 strength 분포 (MD4 Bullish 강도 약화 판단)
+    cursor.execute("""
+        SELECT stage2_strength, COUNT(*) as cnt
+        FROM analysis_results
+        WHERE pipeline_version = 2 AND stage1_relevant = 1
+        AND stage2_variable_id IN ('V38','V42','VG_SaaS','VG_IndDef','V52')
+        AND stage2_direction = 'bullish'
+        AND analyzed_at > datetime('now', '-30 days')
+        GROUP BY stage2_strength
+    """)
+    strength_rows = cursor.fetchall()
+    conn.close()
+
+    strength_map = {"strong": 3, "moderate": 2, "weak": 1}
+    total_strength = 0
+    total_count = 0
+    for r in strength_rows:
+        s = strength_map.get(r['stage2_strength'], 2)
+        c = r['cnt']
+        total_strength += s * c
+        total_count += c
+
+    avg_strength = total_strength / total_count if total_count > 0 else 0
+    # avg_strength < 2.0 (moderate 미만)이면 "강도 약화"로 판단
+    md4_weakening = avg_strength < 2.0 and total_count > 0
+
+    return {"v35_bearish_count": v35_bearish_count, "md4_weakening": md4_weakening}
+
+
 @app.get("/api/divergence-alerts")
 def get_divergence_alerts():
-    """활성 Divergence Alert 계산"""
+    """활성 Divergence Alert 계산 (DA1-DA5 전체)"""
     drivers = get_drivers()
     driver_map = {d["driver_id"]: d for d in drivers}
+    da3_data = _get_da3_signals()
 
     active_alerts = []
     for rule in DIVERGENCE_ALERT_RULES:
@@ -544,6 +694,9 @@ def get_divergence_alerts():
         elif rule["id"] == "DA2":
             triggered = (driver_map.get("MD4", {}).get("direction") == "bullish" and
                         driver_map.get("MD2", {}).get("direction") == "bearish")
+        elif rule["id"] == "DA3":
+            # V35 Bearish 3건 이상 + MD4 Bullish 강도 약화
+            triggered = (da3_data["v35_bearish_count"] >= 3 and da3_data["md4_weakening"])
         elif rule["id"] == "DA4":
             triggered = all(driver_map.get(d, {}).get("direction") == "bearish"
                           for d in ["MD1", "MD2", "MD4"])

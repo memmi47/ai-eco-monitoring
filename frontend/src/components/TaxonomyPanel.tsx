@@ -39,21 +39,21 @@ export default function TaxonomyPanel() {
           <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-tighter mb-3">Layers</h3>
           <ul className="space-y-1">
             {layers.length > 0 ? layers.map(layer => (
-              <li key={layer} className="text-xs font-medium text-gray-600 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+              <li key={layer} className="text-xs font-medium text-gray-400 hover:text-white cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-white/[0.06] border border-transparent hover:border-white/10">
                 {layer}
               </li>
-            )) : <li className="text-xs text-gray-400 italic font-light px-2">No layers mapped</li>}
+            )) : <li className="text-xs text-gray-600 italic font-light px-2">No layers mapped</li>}
           </ul>
         </div>
         <div>
           <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-tighter mb-3">Core Categories</h3>
           <ul className="space-y-1">
             {categories.length > 0 ? categories.slice(0, 15).map(cat => (
-              <li key={cat} className="text-xs font-medium text-gray-600 hover:text-blue-600 cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-blue-50/50 border border-transparent hover:border-blue-100">
+              <li key={cat} className="text-xs font-medium text-gray-400 hover:text-white cursor-pointer transition-colors px-2 py-1.5 rounded-md hover:bg-white/[0.06] border border-transparent hover:border-white/10">
                 {cat}
               </li>
-            )) : <li className="text-xs text-gray-400 italic font-light px-2">Loading categories...</li>}
-            {categories.length > 15 && <li className="text-[10px] text-gray-300 pl-2 pt-1">+ {categories.length - 15} more</li>}
+            )) : <li className="text-xs text-gray-600 italic font-light px-2">Loading categories...</li>}
+            {categories.length > 15 && <li className="text-[10px] text-gray-600 pl-2 pt-1">+ {categories.length - 15} more</li>}
           </ul>
         </div>
       </div>
